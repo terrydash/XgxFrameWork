@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.ClientSide(客户使用�
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.ServerSide(服务器端使用界面)", "2.ServerSide(服务器端使用界面)", "{1D846B76-B5C6-4FC8-A55B-4E2CD18D3CCF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Service(相关服务层)", "3.Service(相关服务层)", "{E109F6E5-8BFC-49F8-96E1-255C3D4F752B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Services(相关服务层)", "3.Services(相关服务层)", "{E109F6E5-8BFC-49F8-96E1-255C3D4F752B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.InterFace(相关接口AP层)", "4.InterFace(相关接口AP层)", "{8687CF86-111A-4293-82D8-355F802EFE9A}"
 EndProject
@@ -23,13 +23,45 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.DataAccessLayer(数据交
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(1).ORM(各种ORM工具)", "(1).ORM(各种ORM工具)", "{B460F896-43BA-4489-BB4E-E13AEF5FCA4C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7.CodeCreater(代码生成层)", "7.CodeCreater(代码生成层)", "{9D8A5222-BFC3-45FC-8873-7F63695B0ACD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10.CodeCreater(代码生成层)", "10.CodeCreater(代码生成层)", "{9D8A5222-BFC3-45FC-8873-7F63695B0ACD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "(1).Entity(实体生成)", "(1).Entity(实体生成)", "{2BAA140B-7FB3-435F-92E4-9D898AB2974B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "8.Config(相关设置层)", "8.Config(相关设置层)", "{3535C5E6-1D71-4633-AF7B-1B61A49DAB9B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9.CommonLayer(通用设置层)", "9.CommonLayer(通用设置层)", "{8EC735CE-0DA7-499F-A192-2B759A5DF18B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "12.Tools(相关工具)", "12.Tools(相关工具)", "{1353234F-0590-4268-BC09-DD16FBDCABCE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "15.Docs(相关文档)", "15.Docs(相关文档)", "{6A35B72C-B78B-4A84-A2EC-5AB11339440C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "20.Resouse(通用资源)", "20.Resouse(通用资源)", "{657A7BC0-C30C-4D80-AE62-28B2D994EBFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XgxFrameWork.UI.Client.WPF_App", "XgxFrameWork.UI.Client.WPF_App\XgxFrameWork.UI.Client.WPF_App.csproj", "{5BC99D23-E7A2-4743-97EA-344066CA7CA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.WPF客户端", "1.WPF客户端", "{9CCEE74A-65F4-4C8E-A8AF-B04CFD3CB252}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.控制台应用客户端", "2.控制台应用客户端", "{0FBAFAE8-FFA9-4E0D-92DB-44A5E1863D73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11.UnitTests(单元测试)", "11.UnitTests(单元测试)", "{C855FF6F-3A30-412F-B7CC-9523ADCA56D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XgxFrameWork.UI.Client.Console", "XgxFrameWork.UI.Client.Console\XgxFrameWork.UI.Client.Console.csproj", "{9EDA1B90-23D9-4755-91A9-0FCE4AA1BEA8}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BC99D23-E7A2-4743-97EA-344066CA7CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BC99D23-E7A2-4743-97EA-344066CA7CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BC99D23-E7A2-4743-97EA-344066CA7CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BC99D23-E7A2-4743-97EA-344066CA7CA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EDA1B90-23D9-4755-91A9-0FCE4AA1BEA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDA1B90-23D9-4755-91A9-0FCE4AA1BEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDA1B90-23D9-4755-91A9-0FCE4AA1BEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDA1B90-23D9-4755-91A9-0FCE4AA1BEA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -39,5 +71,9 @@ Global
 		{2163EF0D-C1E6-4B36-B677-E18757E1D6B9} = {1C3A7B00-A29D-4EFD-8A3B-694EB55AAC12}
 		{B460F896-43BA-4489-BB4E-E13AEF5FCA4C} = {7EF530FF-385C-4AEA-9449-1DD47FA3315D}
 		{2BAA140B-7FB3-435F-92E4-9D898AB2974B} = {9D8A5222-BFC3-45FC-8873-7F63695B0ACD}
+		{5BC99D23-E7A2-4743-97EA-344066CA7CA7} = {9CCEE74A-65F4-4C8E-A8AF-B04CFD3CB252}
+		{9CCEE74A-65F4-4C8E-A8AF-B04CFD3CB252} = {E64B3B5D-B46E-4F12-B065-F2EFA7048CBA}
+		{0FBAFAE8-FFA9-4E0D-92DB-44A5E1863D73} = {E64B3B5D-B46E-4F12-B065-F2EFA7048CBA}
+		{9EDA1B90-23D9-4755-91A9-0FCE4AA1BEA8} = {0FBAFAE8-FFA9-4E0D-92DB-44A5E1863D73}
 	EndGlobalSection
 EndGlobal
