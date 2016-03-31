@@ -59,13 +59,15 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件ToolStripMenuItem,
             this.视图ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(823, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1097, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,19 +77,19 @@
             this.新建数据库连接ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.文件ToolStripMenuItem.Text = "文件";
             // 
             // 新建数据库连接ToolStripMenuItem
             // 
             this.新建数据库连接ToolStripMenuItem.Name = "新建数据库连接ToolStripMenuItem";
-            this.新建数据库连接ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.新建数据库连接ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.新建数据库连接ToolStripMenuItem.Text = "新建";
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -96,13 +98,13 @@
             this.视图ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.数据库视图ToolStripMenuItem});
             this.视图ToolStripMenuItem.Name = "视图ToolStripMenuItem";
-            this.视图ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.视图ToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.视图ToolStripMenuItem.Text = "视图";
             // 
             // 数据库视图ToolStripMenuItem
             // 
             this.数据库视图ToolStripMenuItem.Name = "数据库视图ToolStripMenuItem";
-            this.数据库视图ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.数据库视图ToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.数据库视图ToolStripMenuItem.Text = "数据库视图";
             this.数据库视图ToolStripMenuItem.Click += new System.EventHandler(this.数据库视图ToolStripMenuItem_Click);
             // 
@@ -112,20 +114,20 @@
             this.日志ToolStripMenuItem,
             this.关于ToolStripMenuItem});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.帮助ToolStripMenuItem.Text = "帮助";
             // 
             // 日志ToolStripMenuItem
             // 
             this.日志ToolStripMenuItem.Name = "日志ToolStripMenuItem";
-            this.日志ToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.日志ToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.日志ToolStripMenuItem.Text = "错误日志";
             this.日志ToolStripMenuItem.Click += new System.EventHandler(this.日志ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.关于ToolStripMenuItem.Text = "关于Dos.ORM实体生成器";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
@@ -134,9 +136,10 @@
             this.dpleft.ActiveAutoHideContent = null;
             this.dpleft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dpleft.DockBackColor = System.Drawing.SystemColors.Control;
-            this.dpleft.Location = new System.Drawing.Point(0, 25);
+            this.dpleft.Location = new System.Drawing.Point(0, 24);
+            this.dpleft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dpleft.Name = "dpleft";
-            this.dpleft.Size = new System.Drawing.Size(823, 433);
+            this.dpleft.Size = new System.Drawing.Size(1097, 548);
             dockPanelGradient1.EndColor = System.Drawing.SystemColors.ControlLight;
             dockPanelGradient1.StartColor = System.Drawing.SystemColors.ControlLight;
             autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
@@ -185,14 +188,15 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 458);
+            this.ClientSize = new System.Drawing.Size(1097, 572);
             this.Controls.Add(this.dpleft);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Dos.Tools代码生成器";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
