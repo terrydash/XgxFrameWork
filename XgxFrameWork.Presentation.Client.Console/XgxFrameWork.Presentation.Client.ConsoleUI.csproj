@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1726F0D9-2951-41FE-B4D4-9050E358A162}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{1550073B-34AF-47B6-B10E-FB2C0683DC4B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XgxFrameWork.CacheLayer.RedisCacheManager</RootNamespace>
-    <AssemblyName>XgxFrameWork.CacheLayer.RedisCacheManager</AssemblyName>
+    <RootNamespace>XgxFrameWork.Presentation.Client.ConsoleUI</RootNamespace>
+    <AssemblyName>XgxFrameWork.Presentation.Client.ConsoleUI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,22 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ServiceStack.Common, Version=3.9.60.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>ServiceStackDLL\ServiceStack.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Interfaces, Version=3.9.60.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>ServiceStackDLL\ServiceStack.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Redis, Version=3.9.60.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>ServiceStackDLL\ServiceStack.Redis.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text, Version=3.9.60.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>ServiceStackDLL\ServiceStack.Text.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,23 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RedisHelper.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ServiceStackDLL\ServiceStack.Common.dll" />
-    <Content Include="ServiceStackDLL\ServiceStack.Common.xml" />
-    <Content Include="ServiceStackDLL\ServiceStack.Interfaces.dll" />
-    <Content Include="ServiceStackDLL\ServiceStack.Redis.dll" />
-    <Content Include="ServiceStackDLL\ServiceStack.Redis.pdb" />
-    <Content Include="ServiceStackDLL\ServiceStack.Redis.XML" />
-    <Content Include="ServiceStackDLL\ServiceStack.Text.dll" />
-    <Content Include="ServiceStackDLL\ServiceStack.Text.xml" />
+    <ProjectReference Include="..\RedisCacheManager\XgxFrameWork.CacheLayer.RedisCacheManager.csproj">
+      <Project>{1726f0d9-2951-41fe-b4d4-9050e358a162}</Project>
+      <Name>XgxFrameWork.CacheLayer.RedisCacheManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
