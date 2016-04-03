@@ -62,6 +62,8 @@ namespace Hxj.Tools.EntityDesign
         private void ContentForm_Load(object sender, EventArgs e)
         {
             Hxj.IDBO.IDbObject dbObject = null;
+          
+            
             if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer.ToString()))
             {
                 dbObject = new Hxj.DbObjects.SQL2000.DbObject(ConnectionModel.ConnectionString);
@@ -91,6 +93,7 @@ namespace Hxj.Tools.EntityDesign
                 MessageBox.Show("未知数据库类型!");
                 return;
             }
+            
             columnsdt = dbObject.GetColumnInfoList(DatabaseName, TableName);
 
             gridColumns.DataSource = columnsdt;
@@ -164,17 +167,7 @@ namespace Hxj.Tools.EntityDesign
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtnamespace.Text))
-            {
-                MessageBox.Show("命名空间不能为空!");
-                return;
-            }
-            if (string.IsNullOrEmpty(txtClassName.Text))
-            {
-                MessageBox.Show("类名不能为空!");
-                return;
-            }
-
+            if (!CheckContent()) { return; }
             Utils.WriteNamespace(txtnamespace.Text);
 
             List<Model.ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
@@ -194,9 +187,9 @@ namespace Hxj.Tools.EntityDesign
                 }
             }
 
-            EntityBuilder builder = new EntityBuilder(TableName, txtnamespace.Text, txtClassName.Text, columns, IsView, cbToupperFrstword.Checked, ConnectionModel.DbType,cbEntityTableName.Checked);
+            EntityBuilder builder = new EntityBuilder(TableName, txtnamespace.Text, txtClassName.Text, columns, IsView, cbToupperFrstword.Checked, ConnectionModel.DbType.ToString(),cbEntityTableName.Checked);
 
-            txtContent.Text = builder.Builder();
+            txtContent.Text = builder.BuilderModelEntity();
 
             tabControl1.SelectedIndex = 1;
         }
@@ -220,10 +213,54 @@ namespace Hxj.Tools.EntityDesign
                     sw.Close();
                 }
             }
-
+            
         }
 
+        private void Btn_MakeDal_Click(object sender, EventArgs e)
+        {
+            if (!CheckContent()) { return; }
+            var Fullfilename = Environment.CurrentDirectory + @"\ModelEntity.Tem";
+            if (!File.Exists(Fullfilename)) { MessageBox.Show("模板文件"+ Fullfilename + "不存在!");return; }
+            var fileContent = string.Empty;
+            using (StreamReader sr = new StreamReader(Fullfilename, Encoding.UTF8))
+            {
+                fileContent=sr.ReadToEnd();
 
+            }
+            List<Model.ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
 
+            foreach (Model.ColumnInfo col in columns)
+            {
+
+                col.IsPK = false;
+
+                foreach (object o in cbPrimarykey.Items)
+                {
+                    if (col.ColumnName.Equals(o.ToString()))
+                    {
+                        col.IsPK = true;
+                        break;
+                    }
+                }
+            }
+            EntityBuilder builder = new EntityBuilder(TableName, txtnamespace.Text, txtClassName.Text, columns, IsView, cbToupperFrstword.Checked, ConnectionModel.DbType.ToString(), cbEntityTableName.Checked);
+            
+            txtTemplate.Text = builder.BuilderModelEntityFromTemplate(fileContent);
+            tabControl1.SelectedTab = tabControl1.TabPages[2];
+        }
+        private  bool CheckContent()
+        {
+            if (string.IsNullOrEmpty(txtnamespace.Text))
+            {
+                MessageBox.Show("命名空间不能为空!");
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtClassName.Text))
+            {
+                MessageBox.Show("类名不能为空!");
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -265,7 +265,7 @@ namespace Hxj.Tools.EntityDesign
                     Utils.GetColumnInfos(dbObject.GetColumnInfoList(DatabaseName, o)),
                     tableview[o],
                     cbToupperFrstword.Checked,
-                    ConnectionModel.DbType,
+                    ConnectionModel.DbType.ToString(),
                     cbEntityTableName.Checked);
                 var path = txtPath.Text + "\\" + txt_wjj.Text.Trim();
                 //修改后效果：自动生成路劲文件夹 by kelyljk 2016-2-2
@@ -278,7 +278,7 @@ namespace Hxj.Tools.EntityDesign
                     false,
                     Encoding.UTF8))
                 {
-                    sw.Write(builder.Builder());
+                    sw.Write(builder.BuilderModelEntity());
                     sw.Close();
                 }
 

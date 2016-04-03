@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("XgxFrameWork.Presentition.Client.Console.UI")]
+[assembly: AssemblyTitle("RedisCacheManager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("XgxFrameWork.Presentition.Client.Console.UI")]
+[assembly: AssemblyProduct("RedisCacheManager")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("ebff4490-d298-4327-bef0-3cd0fcfa6480")]
+[assembly: Guid("1726f0d9-2951-41fe-b4d4-9050e358a162")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
