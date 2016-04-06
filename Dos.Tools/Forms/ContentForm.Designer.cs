@@ -103,6 +103,7 @@
             this.tp1.TabIndex = 0;
             this.tp1.Text = "生成设置";
             this.tp1.UseVisualStyleBackColor = true;
+            this.tp1.Click += new System.EventHandler(this.tp1_Click);
             // 
             // Btn_MakeDal
             // 
@@ -363,13 +364,13 @@
             this.contextMenuStripSave.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.保存ToolStripMenuItem});
             this.contextMenuStripSave.Name = "contextMenuStripSave";
-            this.contextMenuStripSave.Size = new System.Drawing.Size(166, 30);
+            this.contextMenuStripSave.Size = new System.Drawing.Size(164, 28);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
             this.保存ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
             this.保存ToolStripMenuItem.Text = "保存";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 

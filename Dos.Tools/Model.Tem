@@ -1,0 +1,14 @@
+﻿         private @column.TypeName _@column.ColumnName ";");
+                }
+                plus3.AppendSpaceLine(2, "/// <summary>");
+                plus3.AppendSpaceLine(2, "/// " + column.DeText);
+                plus3.AppendSpaceLine(2, "/// </summary>");
+                plus3.AppendSpaceLine(2, "public " + column.TypeName + " " + column.ColumnName);
+                plus3.AppendSpaceLine(2, "{");
+                plus3.AppendSpaceLine(3, "get{ return _" + column.ColumnName + "; }");
+                plus3.AppendSpaceLine(3, "set");
+                plus3.AppendSpaceLine(3, "{");
+                plus3.AppendSpaceLine(4, "this.OnPropertyValueChange(_." + column.ColumnName + ",_" + column.ColumnName + ",value);");
+                plus3.AppendSpaceLine(4, "this._" + column.ColumnName + "=value;");
+                plus3.AppendSpaceLine(3, "}");
+                plus3.AppendSpaceLine(2, "}");

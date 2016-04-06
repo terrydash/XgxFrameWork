@@ -8,7 +8,7 @@ using System.Xml;
 using System.Windows.Forms;
 using Dos.ORM;
 using Dos.ORM.Common;
-
+using Dos.Tools.T4Template;
 namespace Hxj.Tools.EntityDesign
 {
     public class EntityBuilder
@@ -186,7 +186,7 @@ namespace Hxj.Tools.EntityDesign
 
             
             
-            var Content = TemplateContent.Replace("@SystemVersion",Environment.Version.ToString());
+            var Content = TemplateContent.Replace(@"@SystemVersion",Environment.Version.ToString());
             Content = Content.Replace("@namespace",NameSpace);
             Content = Content.Replace("@ClassName", ClassName);
             Content = Content.Replace("@TableName", TableName);          

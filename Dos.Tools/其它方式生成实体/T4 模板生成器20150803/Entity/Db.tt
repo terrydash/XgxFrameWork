@@ -1,0 +1,232 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ include file="$(ProjectDir)Entity/hp.ttinclude"#>
+<#@ include file="$(ProjectDir)Entity/ma.ttinclude"#> 
+<#
+    var manager = Manager.Create(Host, GenerationEnvironment);
+    var list = DbHelper.GetDbTables(config.ConnectionString, config.DbDatabase);
+    foreach (var table in list)
+    {
+        var cList = DbHelper.GetDbColumns(config.ConnectionString, config.DbDatabase, table);
+        table.ColumnList = cList;
+    }
+	foreach(var t in list){
+	manager.StartNewFile(t.ClassName+".cs"); 
+#>	
+using System;
+using System.IO;
+using System.Data;
+using System.Data.Common;
+using Dos.ORM;
+using Dos.ORM.Common;
+
+namespace T4MySqlTemplate
+{
+
+
+    [Serializable]
+	public partial class <#=t.ClassName#> : Entity
+    {
+
+		public <#=t.ClassName#>() : base("<#=t.TableName#>") { }
+
+	    #region Field
+<# foreach(DbColumn column in t.ColumnList){#>
+        private <#= column.CSharpType#> _<#=column.Field#> = <#=column.DefaultString#>;
+	    /// <summary>
+        /// <#= column.Comment#>
+        /// </summary>
+        public <#= column.CSharpType#> <#=column.Field#>
+        {
+            get { return _<#=column.Field#>; }
+            set
+            {
+                this.OnPropertyValueChange(_.<#=column.Field#>, _<#=column.Field#>, value);
+                this._<#=column.Field#> = value;
+                
+            }
+        }
+<#}#>
+		#endregion
+
+		#region Method
+		<#if(!string.IsNullOrEmpty(t.Identity)){ #>
+        /// <summary>
+        /// 获取实体中的标识列
+        /// </summary>
+        public override Field GetIdentityField()
+        {
+            return _.<#=t.Identity#>;
+        }
+		<#}#>
+		<#if(!string.IsNullOrEmpty(t.PrimaryKeyString)){#>
+        /// <summary>
+        /// 获取实体中的主键列
+        /// </summary>
+        public override Field[] GetPrimaryKeyFields()
+        {
+            return new Field[] {<#=t.PrimaryKeyString#> };
+        }
+		<#}#>
+		 /// <summary>
+        /// 获取列信息
+        /// </summary>
+        public override Field[] GetFields()
+        {
+            return new Field[] {<#= t.DosGetFields#>};
+        }
+
+        /// <summary>
+        /// 获取值信息
+        /// </summary>
+        public override object[] GetValues()
+        {
+            return new object[] {<#= t.DosGetValues#> };
+        }
+
+		/// <summary>
+        /// 给当前实体赋值
+        /// </summary>
+        public override void SetPropertyValues(IDataReader reader)
+        {
+			<# foreach(DbColumn column in t.ColumnList){#>
+				this._<#=column.Field#> = DataUtils.ConvertValue<<#= column.CSharpType#>>(reader["<#=column.Field#>"]);
+			<#}#>
+	    }
+        /// <summary>
+        /// 给当前实体赋值
+        /// </summary>
+        public override void SetPropertyValues(DataRow row)
+        {
+		    <# foreach(DbColumn column in t.ColumnList){#>
+				this._<#=column.Field#> =  DataUtils.ConvertValue<<#= column.CSharpType#>>(row["<#=column.Field#>"]);
+			<#}#>
+        }
+		#endregion
+		
+		#region _
+        /// <summary>
+        /// 字段信息
+        /// </summary>
+        public class _
+        {
+            /// <summary>
+            /// *
+            /// </summary>
+            public readonly static Field All = new Field("*", "<#=t.TableName#>");
+			<# foreach(DbColumn column in t.ColumnList){#>
+			/// <summary>
+            /// <#= column.Comment#>
+            /// </summary>
+            public readonly static Field <#=column.Field#> = new Field("<#=column.Field#>", "<#=t.TableName#>", "<#=column.Comment#>");
+			<#}#>
+
+        }
+		#endregion
+        
+    }
+
+}
+<#
+	manager.EndBlock();  
+}
+    manager.Process(true);  
+#>
+
+using Dos.ORM;
+using Dos.ORM.Common;
+using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.IO;
+
+public class Db
+{
+    /// <summary>
+    /// <add name="MySQLConnectionString" connectionString="Server=127.0.0.1;Database=merchantalliance;Uid=root;Pwd=root;" providerName="Hxj.Data.MySql" />
+    /// </summary>
+    public readonly static DbSession Northwind = new DbSession("MySQLConnectionString");
+
+    static Db()
+    {
+        Northwind.RegisterSqlLogger(delegate(string sql)
+        {
+			File.AppendAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sqllog.txt"), sql);
+        });
+    }
+
+    /// <summary>
+    /// 根据实体类型,返回所有记录
+    /// </summary>
+    /// <typeparam name="T">实体类型</typeparam>
+    /// <returns>所以得记录</returns>
+    public static IList<T> List<T>() where T : Entity
+    {
+        return Db.Northwind.From<T>().ToList();
+    }
+
+    /// <summary>
+    /// 保存实体类
+    /// </summary>
+    /// <typeparam name="T">实体类类型</typeparam>
+    /// <param name="t">实体类</param>
+    /// <returns>返回保存的条数</returns>
+    public static int Save<T>(T t) where T : Entity
+    {
+        return Db.Northwind.Insert<T>(t);
+    }
+
+    /// <summary>
+    /// 根据实体类的主键,删除实体类
+    /// </summary>
+    /// <typeparam name="T">实体类类型</typeparam>
+    /// <param name="id">主键</param>
+    /// <returns>删除的条数</returns>
+    public static int Delete<T>(int id) where T : Entity
+    {
+        return Db.Northwind.Delete<T>(id);
+    }
+
+    /// <summary>
+    /// 根据查询条件得到实体类对象
+    /// </summary>
+    /// <typeparam name="T">实体类的类型</typeparam>
+    /// <param name="where">查询条件</param>
+    /// <returns>查询的得到的实体类</returns>
+    public static T Info<T>(WhereClip where) where T : Entity
+    {
+        return Db.Northwind.From<T>().Where(where).ToFirst();
+    }
+
+	/// <summary>
+	/// 根据查询条件,返回实体类列表
+	/// </summary>
+	/// <typeparam name="T">实体类类型</typeparam>
+	/// <param name="where">查询条件</param>
+	/// <returns>查询得到的实体类列表</returns>
+    public static List<T> List<T>(WhereClip where) where T : Entity
+    {
+        return Db.Northwind.From<T>().Where(where).ToList();
+    }
+
+    /// <summary>
+    /// 更新实体
+    /// </summary>
+    /// <typeparam name="T">待更新的实体类的类型</typeparam>
+    /// <param name="t">待更新的实体类</param>
+    /// <returns></returns>
+    public static int Update<T>(T t) where T : Entity
+    {
+        return Db.Northwind.Update<T>(t);
+    }
+
+    /// <summary>
+    /// 根据查询条件,判断是否存在记录
+    /// </summary>
+    /// <typeparam name="T">查询实体类</typeparam>
+    /// <param name="where">查询条件</param>
+    /// <returns>是否存在记录</returns>
+    public static bool Exist<T>(WhereClip where) where T : Entity
+    {
+        return Db.Northwind.Exists<T>(where);
+    }
+}
