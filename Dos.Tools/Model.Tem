@@ -1,6 +1,6 @@
 ﻿         private @column.TypeName _@column.ColumnName ";");
                 }
-                plus3.AppendSpaceLine(2, "/// <summary>");
+                /// <summary>");
                 plus3.AppendSpaceLine(2, "/// " + column.DeText);
                 plus3.AppendSpaceLine(2, "/// </summary>");
                 plus3.AppendSpaceLine(2, "public " + column.TypeName + " " + column.ColumnName);

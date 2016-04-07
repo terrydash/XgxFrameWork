@@ -59,6 +59,7 @@
             this.txtTemplate = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.saveEntity = new System.Windows.Forms.SaveFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tp1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // tp1
             // 
+            this.tp1.Controls.Add(this.button1);
             this.tp1.Controls.Add(this.Btn_MakeDal);
             this.tp1.Controls.Add(this.button6);
             this.tp1.Controls.Add(this.button5);
@@ -364,13 +366,13 @@
             this.contextMenuStripSave.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.保存ToolStripMenuItem});
             this.contextMenuStripSave.Name = "contextMenuStripSave";
-            this.contextMenuStripSave.Size = new System.Drawing.Size(164, 28);
+            this.contextMenuStripSave.Size = new System.Drawing.Size(160, 26);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
             this.保存ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.保存ToolStripMenuItem.Text = "保存";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
@@ -404,6 +406,16 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "pz.ICO");
             this.imageList1.Images.SetKeyName(1, "cs.ICO");
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(351, 676);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 26);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // ContentForm
             // 
@@ -462,5 +474,6 @@
         private System.Windows.Forms.Button Btn_MakeDal;
         private System.Windows.Forms.TabPage tp3;
         private System.Windows.Forms.RichTextBox txtTemplate;
+        private System.Windows.Forms.Button button1;
     }
 }

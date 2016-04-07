@@ -8,7 +8,7 @@ using System.Xml;
 using System.Windows.Forms;
 using Dos.ORM;
 using Dos.ORM.Common;
-using Dos.Tools.T4Template;
+
 namespace Hxj.Tools.EntityDesign
 {
     public class EntityBuilder

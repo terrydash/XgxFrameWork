@@ -37,9 +37,10 @@
             // 
             this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLog.Location = new System.Drawing.Point(0, 0);
+            this.txtLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
-            this.txtLog.Size = new System.Drawing.Size(646, 446);
+            this.txtLog.Size = new System.Drawing.Size(861, 558);
             this.txtLog.TabIndex = 0;
             this.txtLog.Text = "";
             // 
@@ -48,20 +49,22 @@
             this.cbmerrorlist.Dock = System.Windows.Forms.DockStyle.Right;
             this.cbmerrorlist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbmerrorlist.FormattingEnabled = true;
-            this.cbmerrorlist.Location = new System.Drawing.Point(525, 0);
+            this.cbmerrorlist.Location = new System.Drawing.Point(701, 0);
+            this.cbmerrorlist.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbmerrorlist.Name = "cbmerrorlist";
-            this.cbmerrorlist.Size = new System.Drawing.Size(121, 20);
+            this.cbmerrorlist.Size = new System.Drawing.Size(160, 23);
             this.cbmerrorlist.TabIndex = 1;
             this.cbmerrorlist.SelectedIndexChanged += new System.EventHandler(this.cbmerrorlist_SelectedIndexChanged);
             // 
             // LogShow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 446);
+            this.ClientSize = new System.Drawing.Size(861, 558);
             this.Controls.Add(this.cbmerrorlist);
             this.Controls.Add(this.txtLog);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LogShow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

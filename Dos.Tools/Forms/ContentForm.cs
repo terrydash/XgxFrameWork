@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using Dos.Tools.T4Template;
+
 namespace Hxj.Tools.EntityDesign
 {
     public partial class ContentForm : WeifenLuo.WinFormsUI.Docking.DockContent
@@ -218,8 +218,8 @@ namespace Hxj.Tools.EntityDesign
 
         private void Btn_MakeDal_Click(object sender, EventArgs e)
         {
-            ModelTemplate _modelTemplate = new ModelTemplate();
-            MessageBox.Show(_modelTemplate.TransformText());
+            
+            
             if (!CheckContent()) { return; }
             var Fullfilename = Environment.CurrentDirectory + @"\BuildModelEntityTemplate.Tem";
             if (!File.Exists(Fullfilename)) { MessageBox.Show("模板文件"+ Fullfilename + "不存在!");return; }
@@ -268,6 +268,10 @@ namespace Hxj.Tools.EntityDesign
         private void tp1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -9,7 +9,11 @@
   <server id="79165f81-3225-4576-ad58-1ac31e2d56ed" name="192.168.2.150(MySql)[all]" database="all" dbtype="MySql">
     <connectionstring><![CDATA[server=192.168.2.150;user id=root; password=root; Port=3306;database=; pooling=false]]></connectionstring>
   </server>
-  <server id="14300805-2941-4221-a1dc-c579033e778e" name="xgx" database="all" dbtype="SqlServer9">
+  <server id="14300805-2941-4221-a1dc-c579033e778e" name="家" database="all" dbtype="SqlServer9">
     <connectionstring><![CDATA[Data Source=.\;Initial Catalog=Education;User Id=sa;Password=52Xuguoxu]]></connectionstring>
+  </server>
+
+<server id="14300805-2941-4221-a1dc-c579033f7781" name="单位" database="all" dbtype="SqlServer9">
+    <connectionstring><![CDATA[Data Source=WIN-DMNTUF6TOT4\XUGUOXU54;Initial Catalog=Education;User Id=sa;Password=52Xuguoxu]]></connectionstring>
   </server>
 </servers>
