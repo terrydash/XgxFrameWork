@@ -1,0 +1,15 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="$(ProjectDir)bin\Debug\Dos.Common.dll" #>
+<#@ assembly name="$(ProjectDir)bin\Debug\Dos.Orm.dll" #>
+<#@ assembly name="$(ProjectDir)bin\Debug\Dos.Tools.exe" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data" #> 
+<#@ import namespace="Dos.Tools.Common" #> 
+<#@ import namespace="Dos.Tools.Model" #> 
+<#@ import namespace="Dos.ORM" #> 
+<#@ import namespace="Dos.Common" #> 
+<#@ import namespace="Dos.Tools.DbDAL" #> 

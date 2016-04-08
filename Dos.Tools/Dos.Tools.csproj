@@ -174,10 +174,10 @@
     <Compile Include="Model\Sysconfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="T4\DataBaseHelper1.cs">
+    <Compile Include="T4\MakeEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseHelper.ttinclude</DependentUpon>
+      <DependentUpon>MakeEntity.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -293,18 +293,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="T4\DataBaseHelper.ttinclude">
+    <Content Include="T4\MakeEntity.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DataBaseHelper1.cs</LastGenOutput>
-    </None>
-    <Content Include="T4\GetTablesStructFromDataBase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GetTablesStructFromDataBase.txt</LastGenOutput>
-    </Content>
-    <Content Include="T4\GetTablesStructFromDataBase.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GetTablesStructFromDataBase.tt</DependentUpon>
+      <LastGenOutput>MakeEntity.cs</LastGenOutput>
     </Content>
     <Content Include="实体生成器更新日志.txt" />
   </ItemGroup>
