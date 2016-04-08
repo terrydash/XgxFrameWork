@@ -47,19 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\EntityBuilder.cs" />
-    <Compile Include="Common\StringPlus.cs" />
-    <Compile Include="Common\Utils.cs" />
-    <Compile Include="DbDAL\IDbObject.cs" />
-    <Compile Include="DbDAL\MySql\DbObject.cs" />
-    <Compile Include="DbDAL\OleDb\DbObject.cs" />
-    <Compile Include="DbDAL\Oracle\DbObject.cs" />
-    <Compile Include="DbDAL\SQL2000\DbObject.cs" />
-    <Compile Include="DbDAL\SQL2005\DbObject.cs" />
-    <Compile Include="DbDAL\Sqlite\DbObject.cs" />
-    <Compile Include="Model\ColumnInfo.cs" />
-    <Compile Include="Model\Connection.cs" />
-    <Compile Include="Model\Sysconfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
