@@ -174,10 +174,15 @@
     <Compile Include="Model\Sysconfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="T4\Utils.cs">
+    <Compile Include="T4\DataBaseHelper1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Utils.tt</DependentUpon>
+      <DependentUpon>DataBaseHelper.ttinclude</DependentUpon>
+    </Compile>
+    <Compile Include="T4\DataBaseModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.ttinclude</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -293,9 +298,22 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="T4\Utils.tt">
+    <None Include="T4\DataBaseModel.ttinclude">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Utils.cs</LastGenOutput>
+      <LastGenOutput>DataBaseModel1.cs</LastGenOutput>
+    </None>
+    <None Include="T4\DataBaseHelper.ttinclude">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataBaseHelper1.cs</LastGenOutput>
+    </None>
+    <Content Include="T4\GetTablesStructFromDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GetTablesStructFromDataBase.txt</LastGenOutput>
+    </Content>
+    <Content Include="T4\GetTablesStructFromDataBase.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetTablesStructFromDataBase.tt</DependentUpon>
     </Content>
     <Content Include="实体生成器更新日志.txt" />
   </ItemGroup>
