@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Dos.Tools.Common;
+using Dos.Tools.DbDAL;
+using Dos.Tools.DbDAL.Sqlite;
+using Dos.Tools.Model;
 
 namespace Hxj.Tools.EntityDesign
 {
@@ -17,7 +21,7 @@ namespace Hxj.Tools.EntityDesign
             tview.ExpandAll();
         }
 
-        public delegate void NewContentForm(Model.Connection conModel, string tableName, string databaseName, bool isView);
+        public delegate void NewContentForm(Connection conModel, string tableName, string databaseName, bool isView);
 
         public event NewContentForm newcontentForm;
 
@@ -78,7 +82,7 @@ namespace Hxj.Tools.EntityDesign
         /// <summary>
         /// 连接
         /// </summary>
-        List<Model.Connection> list;
+        List<Connection> list;
 
         /// <summary>
         /// 加载
@@ -114,7 +118,7 @@ namespace Hxj.Tools.EntityDesign
             TreeNode node = tview.Nodes[0];
 
             node.ContextMenuStrip = contextMenuStripTop;
-            foreach (Model.Connection connection in list)
+            foreach (Connection connection in list)
             {
                 TreeNode nnode = new TreeNode(connection.Name, 0, 0);
                 nnode.ContextMenuStrip = contextMenuStripDatabase;
@@ -153,11 +157,11 @@ namespace Hxj.Tools.EntityDesign
         /// </summary>
         private void refreshConnectionList()
         {
-            List<Model.Connection> connList = Utils.GetConnectionList();
+            List<Connection> connList = Utils.GetConnectionList();
 
-            foreach (Model.Connection conn in connList)
+            foreach (Connection conn in connList)
             {
-                Model.Connection tempconn = list.Find(delegate(Model.Connection connin) { return conn.ID.ToString().Equals(connin.ID.ToString()); });
+                Connection tempconn = list.Find(delegate(Connection connin) { return conn.ID.ToString().Equals(connin.ID.ToString()); });
                 if (null == tempconn)
                 {
                     TreeNode nnode = new TreeNode(conn.Name, 0, 0);
@@ -184,7 +188,7 @@ namespace Hxj.Tools.EntityDesign
         {
             string stringid = tview.SelectedNode.Tag.ToString();
             Utils.DeleteConnection(stringid);
-            Model.Connection tempconn = list.Find(delegate(Model.Connection conn) { return conn.ID.ToString().Equals(stringid); });
+            Connection tempconn = list.Find(delegate(Connection conn) { return conn.ID.ToString().Equals(stringid); });
             if (null != tempconn)
                 list.Remove(tempconn);
             tview.Nodes.Remove(tview.SelectedNode);
@@ -220,13 +224,13 @@ namespace Hxj.Tools.EntityDesign
         {
             TreeNode node = tview.SelectedNode;
 
-            Model.Connection conModel = list.Find(delegate(Model.Connection con) { return con.ID.ToString().Equals(node.Tag.ToString()); });
+            Connection conModel = list.Find(delegate(Connection con) { return con.ID.ToString().Equals(node.Tag.ToString()); });
 
-            IDBO.IDbObject dbObject;
+            IDbObject dbObject;
 
             if (conModel.DbType.Equals(Dos.ORM.DatabaseType.MsAccess.ToString()))
             {
-                dbObject = new Hxj.DbObjects.OleDb.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.OleDb.DbObject(conModel.ConnectionString);
 
                 TreeNode tnode = new TreeNode(conModel.Database, 1, 1);
                 tnode.Tag = conModel.ConnectionString;
@@ -241,7 +245,7 @@ namespace Hxj.Tools.EntityDesign
             }
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.Sqlite3.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQLite.DbObject(conModel.ConnectionString);
+                dbObject = new DbObject(conModel.ConnectionString);
 
                 TreeNode tnode = new TreeNode(conModel.Database, 1, 1);
                 tnode.Tag = conModel.ConnectionString;
@@ -254,9 +258,9 @@ namespace Hxj.Tools.EntityDesign
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer.ToString()) || conModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer9.ToString()))
             {
                 if (conModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer.ToString()))
-                    dbObject = new Hxj.DbObjects.SQL2000.DbObject(conModel.ConnectionString);
+                    dbObject = new Dos.Tools.DbDAL.SQL2000.DbObject(conModel.ConnectionString);
                 else
-                    dbObject = new Hxj.DbObjects.SQL2005.DbObject(conModel.ConnectionString);
+                    dbObject = new Dos.Tools.DbDAL.SQL2005.DbObject(conModel.ConnectionString);
 
                 if (conModel.Database.Equals("all"))
                 {
@@ -285,7 +289,7 @@ namespace Hxj.Tools.EntityDesign
             }
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.Oracle.ToString()))
             {
-                dbObject = new Hxj.DbObjects.Oracle.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.Oracle.DbObject(conModel.ConnectionString);
 
                 TreeNode tnode = new TreeNode(conModel.Database, 1, 1);
                 tnode.Tag = conModel.ConnectionString;
@@ -296,7 +300,7 @@ namespace Hxj.Tools.EntityDesign
             }
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.MySql.ToString()))
             {
-                dbObject = new Hxj.DbObjects.MySQL.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.MySql.DbObject(conModel.ConnectionString);
 
                 if (conModel.Database.Equals("all"))
                 {
@@ -372,7 +376,7 @@ namespace Hxj.Tools.EntityDesign
         {
             if (null != newcontentForm)
             {
-                Model.Connection conModel = list.Find(delegate(Model.Connection con) { return con.ID.ToString().Equals(tview.SelectedNode.Parent.Parent.Parent.Tag.ToString()); });
+                Connection conModel = list.Find(delegate(Connection con) { return con.ID.ToString().Equals(tview.SelectedNode.Parent.Parent.Parent.Tag.ToString()); });
                 conModel.ConnectionString = tview.SelectedNode.Parent.Parent.Tag.ToString();
                 newcontentForm(conModel, tview.SelectedNode.Text, tview.SelectedNode.Parent.Parent.Text, tview.SelectedNode.Tag.ToString().Equals("V"));
             }
@@ -390,33 +394,33 @@ namespace Hxj.Tools.EntityDesign
 
             node.Nodes.Clear();
 
-            Model.Connection conModel = list.Find(delegate(Model.Connection con) { return con.ID.ToString().Equals(node.Parent.Tag.ToString()); });
+            Connection conModel = list.Find(delegate(Connection con) { return con.ID.ToString().Equals(node.Parent.Tag.ToString()); });
 
-            IDBO.IDbObject dbObject;
+            IDbObject dbObject;
 
             if (conModel.DbType.Equals(Dos.ORM.DatabaseType.MsAccess.ToString()))
             {
-                dbObject = new Hxj.DbObjects.OleDb.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.OleDb.DbObject(conModel.ConnectionString);
                 gettables(node, dbObject.GetTables(""), dbObject.GetVIEWs(""));
             }
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQL2000.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.SQL2000.DbObject(conModel.ConnectionString);
                 gettables(node, dbObject.GetTables(node.Text), dbObject.GetVIEWs(node.Text));
             }
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer9.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQL2005.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.SQL2005.DbObject(conModel.ConnectionString);
                 gettables(node, dbObject.GetTables(node.Text), dbObject.GetVIEWs(node.Text));
             }
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.Oracle.ToString()))
             {
-                dbObject = new Hxj.DbObjects.Oracle.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.Oracle.DbObject(conModel.ConnectionString);
                 gettables(node, dbObject.GetTables(node.Text), dbObject.GetVIEWs(node.Text));
             }
             else if (conModel.DbType.Equals(Dos.ORM.DatabaseType.MySql.ToString()))
             {
-                dbObject = new Hxj.DbObjects.Oracle.DbObject(conModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.Oracle.DbObject(conModel.ConnectionString);
                 gettables(node, dbObject.GetTables(node.Text), dbObject.GetVIEWs(node.Text));
             }
         }
@@ -431,7 +435,7 @@ namespace Hxj.Tools.EntityDesign
         {
             TreeNode node = tview.SelectedNode;
 
-            Model.Connection conModel = list.Find(delegate(Model.Connection con) { return con.ID.ToString().Equals(node.Parent.Tag.ToString()); });
+            Connection conModel = list.Find(delegate(Connection con) { return con.ID.ToString().Equals(node.Parent.Tag.ToString()); });
 
             BatchForm bf = new BatchForm();
             bf.DatabaseName = node.Text;

@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Dos.Tools.Common;
+using Dos.Tools.DbDAL;
+using Dos.Tools.DbDAL.Sqlite;
+using Dos.Tools.Model;
 
 namespace Hxj.Tools.EntityDesign
 {
@@ -24,16 +28,16 @@ namespace Hxj.Tools.EntityDesign
             set { databaseName = value; }
         }
 
-        private Model.Connection connectionModel;
-        public Model.Connection ConnectionModel
+        private Connection connectionModel;
+        public Connection ConnectionModel
         {
             get { return connectionModel; }
             set { connectionModel = value; }
         }
 
-        IDBO.IDbObject dbObject;
+        IDbObject dbObject;
 
-        Model.Sysconfig sysconfigModel;
+        Sysconfig sysconfigModel;
 
         /// <summary>
         /// 初始化
@@ -53,27 +57,27 @@ namespace Hxj.Tools.EntityDesign
             DataTable tablesDT = null;
             if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.MsAccess.ToString()))
             {
-                dbObject = new Hxj.DbObjects.OleDb.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.OleDb.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQL2000.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.SQL2000.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer9.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQL2005.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.SQL2005.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.Oracle.ToString()))
             {
-                dbObject = new Hxj.DbObjects.Oracle.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.Oracle.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.Sqlite3.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQLite.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.MySql.ToString()))
             {
-                dbObject = new Hxj.DbObjects.MySQL.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.MySql.DbObject(ConnectionModel.ConnectionString);
             }
 
             tablesDT = dbObject.GetTables(DatabaseName);

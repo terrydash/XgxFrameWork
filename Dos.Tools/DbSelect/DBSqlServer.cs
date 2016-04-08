@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Dos.Tools.Common;
+using Dos.Tools.DbDAL;
+using Dos.Tools.DbDAL.SQL2000;
+using Dos.Tools.Model;
 
 namespace Hxj.Tools.EntityDesign.DbSelect
 {
@@ -74,7 +78,7 @@ namespace Hxj.Tools.EntityDesign.DbSelect
 
             try
             {
-                Hxj.IDBO.IDbObject dbObejct = new Hxj.DbObjects.SQL2000.DbObject(cbbShenFenRZ.SelectedIndex == 0, cbbServer.Text, txtUserName.Text, txtPassword.Text);
+                IDbObject dbObejct = new DbObject(cbbShenFenRZ.SelectedIndex == 0, cbbServer.Text, txtUserName.Text, txtPassword.Text);
                 DataTable DBNameTable = dbObejct.GetDBList();
                 cbbDatabase.Items.Clear();
                 cbbDatabase.Items.Add("全部");
@@ -168,7 +172,7 @@ namespace Hxj.Tools.EntityDesign.DbSelect
 
 
 
-            Model.Connection connectionModel = new Hxj.Tools.EntityDesign.Model.Connection();
+            Connection connectionModel = new Connection();
             connectionModel.Database = cbbDatabase.SelectedIndex == 0 ? "all" : cbbDatabase.Text;
             connectionModel.ID = Guid.NewGuid();
             connectionModel.Name = cbbServer.Text + "(" + cbbServerType.Text + ")[" + connectionModel.Database + "]";

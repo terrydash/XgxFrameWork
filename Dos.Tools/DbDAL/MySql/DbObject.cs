@@ -1,12 +1,9 @@
 using System;
 using System.Data;
 using System.Text;
-using System.IO;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using Hxj.IDBO;
-namespace Hxj.DbObjects.MySQL
+
+namespace Dos.Tools.DbDAL.MySql
 {
     /// <summary>
     /// 数据库信息类。
@@ -167,7 +164,7 @@ namespace Hxj.DbObjects.MySQL
                 MySqlDataAdapter command = new MySqlDataAdapter(SQLString, connect);
                 command.Fill(ds, "ds");
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (global::MySql.Data.MySqlClient.MySqlException ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -182,7 +179,7 @@ namespace Hxj.DbObjects.MySQL
                 MySqlDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                 return myReader;
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (global::MySql.Data.MySqlClient.MySqlException ex)
             {
                 throw ex;
             }

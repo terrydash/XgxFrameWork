@@ -179,11 +179,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseHelper.ttinclude</DependentUpon>
     </Compile>
-    <Compile Include="T4\DataBaseModel1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseModel.ttinclude</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -298,10 +293,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="T4\DataBaseModel.ttinclude">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DataBaseModel1.cs</LastGenOutput>
-    </None>
     <None Include="T4\DataBaseHelper.ttinclude">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DataBaseHelper1.cs</LastGenOutput>

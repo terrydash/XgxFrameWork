@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.Common;
-using Hxj.Tools.EntityDesign.Model;
 using System.Xml;
 using System.Windows.Forms;
 using Dos.ORM;
 using Dos.ORM.Common;
+using Dos.Tools.Common;
+using Dos.Tools.Model;
 
 namespace Hxj.Tools.EntityDesign
 {
     public class EntityBuilder
     {
-        private List<Model.ColumnInfo> _columns = new List<Hxj.Tools.EntityDesign.Model.ColumnInfo>();
+        private List<ColumnInfo> _columns = new List<ColumnInfo>();
 
         private string _tableName;
         private string _dbType;
@@ -27,13 +28,13 @@ namespace Hxj.Tools.EntityDesign
         private bool _isSZMDX = false;
         private bool _isNewModel = false;
 
-        public EntityBuilder(string tableName, string nameSpace, string className, List<Model.ColumnInfo> columns, bool isView)
+        public EntityBuilder(string tableName, string nameSpace, string className, List<ColumnInfo> columns, bool isView)
             : this(tableName, nameSpace, className, columns, isView, false)
         {
 
         }
 
-        public EntityBuilder(string tableName, string nameSpace, string className, List<Model.ColumnInfo> columns, bool isView, bool isSZMDX,string dbType = null,bool isNewModel = false)
+        public EntityBuilder(string tableName, string nameSpace, string className, List<ColumnInfo> columns, bool isView, bool isSZMDX,string dbType = null,bool isNewModel = false)
         {
             _isSZMDX = isSZMDX;
             _className = Utils.ReplaceSpace(className);
@@ -49,7 +50,7 @@ namespace Hxj.Tools.EntityDesign
 
 
 
-            foreach (Model.ColumnInfo col in columns)
+            foreach (ColumnInfo col in columns)
             {
                 col.ColumnName = Utils.ReplaceSpace(col.ColumnName);
                 if (_isSZMDX)
@@ -63,7 +64,7 @@ namespace Hxj.Tools.EntityDesign
 
         }
 
-        public List<Model.ColumnInfo> Columns
+        public List<ColumnInfo> Columns
         {
             get { return _columns; }
             set { _columns = value; }
@@ -322,7 +323,7 @@ namespace Hxj.Tools.EntityDesign
                 plus.AppendSpaceLine(2, "}");
             }
 
-            Model.ColumnInfo identityColumn = Columns.Find(delegate(Model.ColumnInfo col) { return col.IsIdentity; });
+            ColumnInfo identityColumn = Columns.Find(delegate(ColumnInfo col) { return col.IsIdentity; });
             if (null != identityColumn)
             {
                 plus.AppendSpaceLine(2, "/// <summary>");
@@ -334,7 +335,7 @@ namespace Hxj.Tools.EntityDesign
                 plus.AppendSpaceLine(2, "}");
             }
 
-            List<Model.ColumnInfo> primarykeyColumns = Columns.FindAll(delegate(Model.ColumnInfo col) { return col.IsPK; });
+            List<ColumnInfo> primarykeyColumns = Columns.FindAll(delegate(ColumnInfo col) { return col.IsPK; });
             if (null != primarykeyColumns && primarykeyColumns.Count > 0)
             {
                 plus.AppendSpaceLine(2, "/// <summary>");
@@ -344,7 +345,7 @@ namespace Hxj.Tools.EntityDesign
                 plus.AppendSpaceLine(2, "{");
                 plus.AppendSpaceLine(3, "return new Field[] {");
                 StringPlus plus2 = new StringPlus();
-                foreach (Model.ColumnInfo col in primarykeyColumns)
+                foreach (ColumnInfo col in primarykeyColumns)
                 {
                     plus2.AppendSpaceLine(4, "_." + col.ColumnName + ",");
                 }
@@ -511,7 +512,7 @@ namespace Hxj.Tools.EntityDesign
         /// <param name="columns"></param>
         /// <param name="dbType"></param>
         /// <returns></returns>
-        public static List<Model.ColumnInfo> DbtoCSColumns(List<Model.ColumnInfo> columns, string dbType)
+        public static List<ColumnInfo> DbtoCSColumns(List<ColumnInfo> columns, string dbType)
         {
             Dictionary<string, string> types = loadType();
 

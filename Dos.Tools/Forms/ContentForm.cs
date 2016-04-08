@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Dos.Tools.Common;
+using Dos.Tools.DbDAL;
+using Dos.Tools.DbDAL.Sqlite;
+using Dos.Tools.Model;
 
 namespace Hxj.Tools.EntityDesign
 {
@@ -25,9 +29,9 @@ namespace Hxj.Tools.EntityDesign
         private string content;
 
 
-        private Model.Connection connectionModel;
+        private Connection connectionModel;
 
-        public Model.Connection ConnectionModel
+        public Connection ConnectionModel
         {
             set { connectionModel = value; }
             get { return connectionModel; }
@@ -61,32 +65,32 @@ namespace Hxj.Tools.EntityDesign
         /// <param name="e"></param>
         private void ContentForm_Load(object sender, EventArgs e)
         {
-            Hxj.IDBO.IDbObject dbObject = null;
+            IDbObject dbObject = null;
           
             
             if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQL2000.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.SQL2000.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer9.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQL2005.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.SQL2005.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.MsAccess.ToString()))
             {
-                dbObject = new Hxj.DbObjects.OleDb.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.OleDb.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.Oracle.ToString()))
             {
-                dbObject = new Hxj.DbObjects.Oracle.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.Oracle.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.Sqlite3.ToString()))
             {
-                dbObject = new Hxj.DbObjects.SQLite.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.MySql.ToString()))
             {
-                dbObject = new Hxj.DbObjects.MySQL.DbObject(ConnectionModel.ConnectionString);
+                dbObject = new Dos.Tools.DbDAL.MySql.DbObject(ConnectionModel.ConnectionString);
             }
             else
             {
@@ -170,9 +174,9 @@ namespace Hxj.Tools.EntityDesign
             if (!CheckContent()) { return; }
             Utils.WriteNamespace(txtnamespace.Text);
 
-            List<Model.ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
+            List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
 
-            foreach (Model.ColumnInfo col in columns)
+            foreach (ColumnInfo col in columns)
             {
 
                 col.IsPK = false;
@@ -229,9 +233,9 @@ namespace Hxj.Tools.EntityDesign
                 fileContent=sr.ReadToEnd();
 
             }
-            List<Model.ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
+            List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
 
-            foreach (Model.ColumnInfo col in columns)
+            foreach (ColumnInfo col in columns)
             {
 
                 col.IsPK = false;

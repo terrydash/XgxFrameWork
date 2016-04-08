@@ -8,6 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Dos.Common;
 using Dos.Tools.EntityDesign.Forms;
+using Dos.Tools.Model;
 
 namespace Hxj.Tools.EntityDesign
 {
@@ -44,7 +45,7 @@ namespace Hxj.Tools.EntityDesign
         /// </summary>
         /// <param name="conModel"></param>
         /// <param name="tableName"></param>
-        void lp_newcontentForm(Hxj.Tools.EntityDesign.Model.Connection conModel, string tableName, string databaseName, bool isView)
+        void lp_newcontentForm(Connection conModel, string tableName, string databaseName, bool isView)
         {
             ContentForm s = new ContentForm();
             s.Text = "(" + databaseName + ")" + tableName;

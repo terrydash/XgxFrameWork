@@ -1,13 +1,10 @@
-﻿namespace Hxj.DbObjects.SQL2005
-{
-    using Hxj.IDBO;
-    using System;
-    using System.Data;
-    using System.Data.SqlClient;
-    using System.IO;
-    using System.Text;
-    using System.Windows.Forms;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
 
+namespace Dos.Tools.DbDAL.SQL2005
+{
     public class DbObject : IDbObject
     {
         private string _dbconnectStr;

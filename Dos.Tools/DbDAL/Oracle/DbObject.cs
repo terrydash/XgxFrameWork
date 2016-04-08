@@ -1,12 +1,10 @@
-﻿namespace Hxj.DbObjects.Oracle
-{
-    using Hxj.IDBO;
-    using System;
-    using System.Data;
-    using System.Data.OracleClient;
-    using System.Text;
-    using Dos.ORM;
+﻿using System.Data;
+using System.Data.OracleClient;
+using System.Text;
+using Dos.ORM;
 
+namespace Dos.Tools.DbDAL.Oracle
+{
     public class DbObject : IDbObject
     {
         private string _dbconnectStr;

@@ -5,6 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Dos.Tools.Common;
+using Dos.Tools.DbDAL;
+using Dos.Tools.DbDAL.MySql;
+using Dos.Tools.Model;
 
 namespace Hxj.Tools.EntityDesign.DbSelect
 {
@@ -38,7 +42,7 @@ namespace Hxj.Tools.EntityDesign.DbSelect
 
             try
             {
-                Hxj.IDBO.IDbObject dbObejct = new Hxj.DbObjects.MySQL.DbObject(false, cbbServer.Text, txtUserName.Text, txtPassword.Text, txtport.Text);
+                IDbObject dbObejct = new DbObject(false, cbbServer.Text, txtUserName.Text, txtPassword.Text, txtport.Text);
                 DataTable DBNameTable = dbObejct.GetDBList();
                 cbbDatabase.Items.Clear();
                 cbbDatabase.Items.Add("全部");
@@ -80,7 +84,7 @@ namespace Hxj.Tools.EntityDesign.DbSelect
                 MessageBox.Show("登陆名不能为空!");
                 return;
             }
-            Hxj.IDBO.IDbObject dbObejct = new Hxj.DbObjects.MySQL.DbObject(false, cbbServer.Text, txtUserName.Text, txtPassword.Text, txtport.Text);
+            IDbObject dbObejct = new DbObject(false, cbbServer.Text, txtUserName.Text, txtPassword.Text, txtport.Text);
             string tempconnectionstring = dbObejct.DbConnectStr;
 
             try
@@ -100,7 +104,7 @@ namespace Hxj.Tools.EntityDesign.DbSelect
 
 
 
-            Model.Connection connectionModel = new Hxj.Tools.EntityDesign.Model.Connection();
+            Connection connectionModel = new Connection();
             connectionModel.Database = cbbDatabase.SelectedIndex == 0 ? "all" : cbbDatabase.Text;
             connectionModel.ID = Guid.NewGuid();
             connectionModel.Name = cbbServer.Text + "(MySql)[" + connectionModel.Database + "]";

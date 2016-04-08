@@ -1,17 +1,10 @@
-﻿namespace Hxj.DbObjects.SQLite
+﻿using System;
+using System.Data;
+using System.Data.SQLite;
+using System.Text;
+
+namespace Dos.Tools.DbDAL.Sqlite
 {
-
-    using System;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.SQLite;
-    using System.IO;
-    using System.Runtime.InteropServices;
-    using System.Text;
-    using System.Windows.Forms;
-    using Hxj.Tools.EntityDesign.Model;
-    using Hxj.IDBO;
-
     public class DbObject : IDbObject
     {
         private string _dbconnectStr;

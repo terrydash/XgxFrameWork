@@ -1,8 +1,8 @@
 ﻿/* 字符操作 */
-using System;
+
 using System.Text;
 
-namespace Hxj.Tools.EntityDesign
+namespace Dos.Tools.Common
 {
     public class StringPlus
     {

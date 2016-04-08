@@ -1,10 +1,9 @@
-﻿using Hxj.IDBO;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Text;
 
-namespace Hxj.DbObjects.OleDb
+namespace Dos.Tools.DbDAL.OleDb
 {
     public class DbObject : IDbObject
     {

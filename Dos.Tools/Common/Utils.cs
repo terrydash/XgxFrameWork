@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
-using System.IO;
-using Hxj.Tools.EntityDesign.Model;
-using System.Data;
+using Dos.Tools.Model;
 
-namespace Hxj.Tools.EntityDesign
+namespace Dos.Tools.Common
 {
     public class Utils
     {
@@ -21,9 +21,9 @@ namespace Hxj.Tools.EntityDesign
         /// 获取连接
         /// </summary>
         /// <returns></returns>
-        public static List<Model.Connection> GetConnectionList()
+        public static List<Connection> GetConnectionList()
         {
-            List<Model.Connection> list = new List<Hxj.Tools.EntityDesign.Model.Connection>();
+            List<Connection> list = new List<Connection>();
             XmlDocument doc = getXmlDocument();
 
             XmlNodeList xmlNodeList = doc.SelectNodes("servers/server");
@@ -34,7 +34,7 @@ namespace Hxj.Tools.EntityDesign
                     if (!node.HasChildNodes)
                         continue;
 
-                    Model.Connection connection = new Hxj.Tools.EntityDesign.Model.Connection();
+                    Connection connection = new Connection();
 
                     connection.ID = new Guid(node.Attributes["id"].Value);
                     connection.Name = node.Attributes["name"].Value;
@@ -100,7 +100,7 @@ namespace Hxj.Tools.EntityDesign
         /// 添加
         /// </summary>
         /// <param name="conection"></param>
-        public static void AddConnection(Model.Connection conection)
+        public static void AddConnection(Connection conection)
         {
             XmlDocument doc = getXmlDocument();
 
@@ -129,9 +129,9 @@ namespace Hxj.Tools.EntityDesign
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static Model.Connection GetConnectionModel(string id)
+        public static Connection GetConnectionModel(string id)
         {
-            Model.Connection connModel = null;
+            Connection connModel = null;
             if (string.IsNullOrEmpty(id))
                 return connModel;
 
@@ -141,7 +141,7 @@ namespace Hxj.Tools.EntityDesign
             XmlNode xmlNode = doc.SelectSingleNode("servers/server[@id='" + id.ToString() + "']");
             if (null != xmlNode)
             {
-                connModel = new Hxj.Tools.EntityDesign.Model.Connection();
+                connModel = new Connection();
                 connModel.ID = new Guid(xmlNode.Attributes["id"].Value);
                 connModel.Name = xmlNode.Attributes["name"].Value;
                 connModel.Database = xmlNode.Attributes["database"].Value;
@@ -162,9 +162,9 @@ namespace Hxj.Tools.EntityDesign
         /// 获取系统配置
         /// </summary>
         /// <returns></returns>
-        public static Model.Sysconfig GetSysconfigModel()
+        public static Sysconfig GetSysconfigModel()
         {
-            Model.Sysconfig sysconfigModel = new Sysconfig();
+            Sysconfig sysconfigModel = new Sysconfig();
 
             XmlDocument doc = new XmlDocument();
             doc.Load(SysconfigPath);
@@ -187,7 +187,7 @@ namespace Hxj.Tools.EntityDesign
         /// 设置系统配置
         /// </summary>
         /// <returns></returns>
-        public static void GetSysconfigModel(Model.Sysconfig sysconfigModel)
+        public static void GetSysconfigModel(Sysconfig sysconfigModel)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(SysconfigPath);
@@ -265,9 +265,9 @@ namespace Hxj.Tools.EntityDesign
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        public static List<Hxj.Tools.EntityDesign.Model.ColumnInfo> GetColumnInfos(DataTable dt)
+        public static List<ColumnInfo> GetColumnInfos(DataTable dt)
         {
-            List<Hxj.Tools.EntityDesign.Model.ColumnInfo> list = new List<Hxj.Tools.EntityDesign.Model.ColumnInfo>();
+            List<ColumnInfo> list = new List<ColumnInfo>();
             if (dt == null)
             {
                 return null;
@@ -285,7 +285,7 @@ namespace Hxj.Tools.EntityDesign
                 string str9 = row["cisNull"].ToString(); //为空
                 string str10 = row["DefaultVal"].ToString();  //默认值
                 string str11 = row["DeText"].ToString();  //描述
-                Hxj.Tools.EntityDesign.Model.ColumnInfo item = new Hxj.Tools.EntityDesign.Model.ColumnInfo();
+                ColumnInfo item = new ColumnInfo();
                 item.Colorder = str;
                 item.ColumnName = str2;
                 item.TypeName = str3;
