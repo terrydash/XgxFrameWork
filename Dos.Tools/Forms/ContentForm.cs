@@ -175,25 +175,18 @@ namespace Hxj.Tools.EntityDesign
             Utils.WriteNamespace(txtnamespace.Text);
 
             List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
+            Dos.Tools.T4.MakeEntity mk = new Dos.Tools.T4.MakeEntity();
+            mk._tableName = TableName;
+            mk._nameSpace = txtnamespace.Text;
+            mk._IsView = IsView;
+            mk._className = txtClassName.Text;
+            mk.Columns = columns;
+            mk._isSZMDX = cbToupperFrstword.Checked;
+            Dos.Tools.T4.MakeEntity._appPath = Application.StartupPath;
+            mk._dbType = ConnectionModel.DbType;
 
-            foreach (ColumnInfo col in columns)
-            {
 
-                col.IsPK = false;
-
-                foreach (object o in cbPrimarykey.Items)
-                {
-                    if (col.ColumnName.Equals(o.ToString()))
-                    {
-                        col.IsPK = true;
-                        break;
-                    }
-                }
-            }
-
-            EntityBuilder builder = new EntityBuilder(TableName, txtnamespace.Text, txtClassName.Text, columns, IsView, cbToupperFrstword.Checked, ConnectionModel.DbType.ToString(),cbEntityTableName.Checked);
-
-            txtContent.Text = builder.BuilderModelEntity();
+            txtContent.Text = mk.TransformText();
 
             tabControl1.SelectedIndex = 1;
         }

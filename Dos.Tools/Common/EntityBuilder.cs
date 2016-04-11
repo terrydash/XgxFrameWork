@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Data;
-using System.Data.Common;
 using System.Xml;
-using System.Windows.Forms;
 using Dos.ORM;
-using Dos.ORM.Common;
 using Dos.Tools.Common;
 using Dos.Tools.Model;
+using System.Windows.Forms;
 
 namespace Hxj.Tools.EntityDesign
 {

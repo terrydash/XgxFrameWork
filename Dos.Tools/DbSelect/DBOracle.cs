@@ -62,6 +62,7 @@ namespace Hxj.Tools.EntityDesign.DbSelect
 
                 using (OracleConnection connect = new OracleConnection(dbObject.DbConnectStr))
                 {
+                    
                     connect.Open();
                 }
 
