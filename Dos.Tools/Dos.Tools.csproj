@@ -166,12 +166,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="T4\DALFactory.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DALFactory.tt</DependentUpon>
-    </Compile>
+    <Compile Include="T4\ActiveYearEntity.cs" />
+    <Compile Include="T4\ConcreateActiveYear.cs" />
+    <Compile Include="T4\ConcreateDalFactory.cs" />
+    <Compile Include="T4\IAbsactActiveYear.cs" />
     <Compile Include="T4\IDAL.cs" />
+    <Compile Include="T4\IAbactEntityDalFactory.cs" />
     <Compile Include="T4\MakeEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -290,10 +290,6 @@
     <Content Include="Config\sysconfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="T4\DALFactory.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DALFactory.cs</LastGenOutput>
     </Content>
     <Content Include="T4\MakeEntity.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

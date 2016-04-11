@@ -16,4 +16,8 @@
 <server id="14300805-2941-4221-a1dc-c579033f7781" name="单位" database="all" dbtype="SqlServer9">
     <connectionstring><![CDATA[Data Source=WIN-DMNTUF6TOT4\XUGUOXU54;Initial Catalog=Education;User Id=sa;Password=52Xuguoxu]]></connectionstring>
   </server>
+  <server id="332ebea4-0c96-4ee8-b6d3-8d901abe8bcd" name="ORCL(Oracle)" database="ORCL" dbtype="Oracle">
+    <connectionstring><![CDATA[Data Source=ORCL;User Id=zfxfzb;Password=xgxxgx;Integrated Security=no;Min Pool Size=1;Max Pool Size=10]]></connectionstring>
+  </server>
+
 </servers>
