@@ -21,7 +21,7 @@
 }
 _className=Utils.ReplaceSpace(_className);
 _nameSpace = Utils.ReplaceSpace(_nameSpace);
-Columns = DbToCS.DbtoCSColumns(Columns,_dbType);
+_columns = DbToCS.DbtoCSColumns(_columns,_dbType);
 
 #>
 using System;
@@ -72,7 +72,7 @@ private string BuildModel()
 			StringPlus plus = new StringPlus();
             StringPlus plus2 = new StringPlus();
             StringPlus plus3 = new StringPlus();
-			foreach(ColumnInfo column in Columns)
+			foreach(ColumnInfo column in _columns)
             {
 				plus2.AppendSpaceLine(2, "private " + column.TypeName + " _" + column.ColumnName + ";");
 				plus3.AppendSpaceLine(2, "/// <summary>");
@@ -110,7 +110,7 @@ private string BuildModel()
                 plus.AppendSpaceLine(2, "}");
             }
 
-            ColumnInfo identityColumn = Columns.Find(delegate(ColumnInfo col) { return col.IsIdentity; });
+            ColumnInfo identityColumn = _columns.Find(delegate(ColumnInfo col) { return col.IsIdentity; });
             if (null != identityColumn)
             {
                 plus.AppendSpaceLine(2, "/// <summary>");
@@ -122,7 +122,7 @@ private string BuildModel()
                 plus.AppendSpaceLine(2, "}");
             }
 
-            List<ColumnInfo> primarykeyColumns = Columns.FindAll(delegate(ColumnInfo col) { return col.IsPK; });
+            List<ColumnInfo> primarykeyColumns = _columns.FindAll(delegate(ColumnInfo col) { return col.IsPK; });
             if (null != primarykeyColumns && primarykeyColumns.Count > 0)
             {
                 plus.AppendSpaceLine(2, "/// <summary>");
@@ -150,7 +150,7 @@ private string BuildModel()
             plus.AppendSpaceLine(2, "{");
             plus.AppendSpaceLine(3, "return new Field[] {");
             StringPlus plus3 = new StringPlus();
-            foreach (ColumnInfo col in Columns)
+            foreach (ColumnInfo col in _columns)
             {
                 plus3.AppendSpaceLine(4, "_." + col.ColumnName + ",");
             }
@@ -166,7 +166,7 @@ private string BuildModel()
             plus.AppendSpaceLine(2, "{");
             plus.AppendSpaceLine(3, "return new object[] {");
             StringPlus plus4 = new StringPlus();
-            foreach (ColumnInfo col in Columns)
+            foreach (ColumnInfo col in _columns)
             {
                 plus4.AppendSpaceLine(4, "this._" + col.ColumnName + ",");
             }
@@ -193,7 +193,7 @@ private string BuildModel()
             plus.AppendSpaceLine(3, "/// * ");
             plus.AppendSpaceLine(3, "/// </summary>");
             plus.AppendSpaceLine(3, "public readonly static Field All = new Field(\"*\",\"" +  _tableName + "\");");
-            foreach (ColumnInfo col in Columns)
+            foreach (ColumnInfo col in _columns)
             {
                 plus.AppendSpaceLine(3, "/// <summary>");
                 plus.AppendSpaceLine(3, "/// " + col.DeText);

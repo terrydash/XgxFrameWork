@@ -12,6 +12,7 @@ using System.Xml;
 
 namespace Dos.T4
 {
+    #region 公用常量定义
     //用于定于常用的变量
     public partial class VarDefine
     {
@@ -19,10 +20,15 @@ namespace Dos.T4
         public static string NameSpace { get; set; }
         public static string ClassName { get; set; }
         public static List<ColumnInfo> Columns { get; set; }
+        public static string Apppath { get; set; }
+        public static  bool IsView { get; set; }
+        public static bool IsSZMDX { get; set; }
+        public static string DbType { get; set; }
 
     }
+    #endregion
 
-    
+
 
     #region  生成实体的模版MakeEntity.tt的变量定义
     /// <summary>
@@ -34,10 +40,10 @@ namespace Dos.T4
         private string _nameSpace = VarDefine.NameSpace;
         private string _tableName = VarDefine.TableName;
         private string _className = VarDefine.ClassName;
-        private static string _appPath = string.Empty;
-        private bool _IsView = false;
-        private bool _isSZMDX = false;
-        private  string _dbType = string.Empty;
+        public static string _appPath = VarDefine.Apppath;
+        private bool _IsView = VarDefine.IsView;
+        private bool _isSZMDX = VarDefine.IsSZMDX;
+        private string _dbType = VarDefine.DbType;
         
 
     public class DbToCS
@@ -144,12 +150,5 @@ namespace Dos.T4
     #endregion
 
 
-    #region 实体工厂的IEntityFactory.tt的用于模版生成的变量定义
-    public partial class IEntityFactory
-    { 
-       
-    }
-
-
-    #endregion
+   
 }

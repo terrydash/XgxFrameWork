@@ -19,7 +19,7 @@ namespace Hxj.Tools.EntityDesign
         {
             InitializeComponent();
         }
-
+        private string fileName { get; set; }
         public string Content
         {
             get { return content; }
@@ -162,6 +162,23 @@ namespace Hxj.Tools.EntityDesign
             if (cbPrimarykey.Items.Count > 0)
                 cbPrimarykey.SelectedIndex = 0;
         }
+        private void VariableAssignment()
+        {
+            if (!CheckContent()) { return; }
+            Utils.WriteNamespace(txtnamespace.Text);
+
+            List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
+
+            VarDefine.TableName = Utils.ReplaceSpace(TableName);
+            VarDefine.NameSpace = Utils.ReplaceSpace(txtnamespace.Text);
+            VarDefine.IsView = IsView;
+            VarDefine.ClassName = Utils.ReplaceSpace(txtClassName.Text);
+            VarDefine.Columns = columns;
+            VarDefine.IsSZMDX = cbToupperFrstword.Checked;
+            VarDefine.Apppath = Application.StartupPath;
+            VarDefine.DbType = ConnectionModel.DbType;
+            
+        }
 
 
         /// <summary>
@@ -171,21 +188,10 @@ namespace Hxj.Tools.EntityDesign
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!CheckContent()) { return; }
-            Utils.WriteNamespace(txtnamespace.Text);
-
-            List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
-           MakeEntity mk = new MakeEntity();
-            mk._tableName = TableName;
-            mk._nameSpace = txtnamespace.Text;
-            mk._IsView = IsView;
-            mk._className = txtClassName.Text;
-            mk._columns = columns;
-            mk._isSZMDX = cbToupperFrstword.Checked;
-            MakeEntity._appPath = Application.StartupPath;
-            mk._dbType = ConnectionModel.DbType;
-
-
+            
+            VariableAssignment();
+            fileName = txtClassName.Text;
+            MakeEntity mk = new MakeEntity();
             txtContent.Text = mk.TransformText();
 
             tabControl1.SelectedIndex = 1;
@@ -199,7 +205,7 @@ namespace Hxj.Tools.EntityDesign
         /// <param name="e"></param>
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveEntity.FileName = txtClassName.Text;
+            saveEntity.FileName = fileName;
             saveEntity.Filter = "CS 文件|*.cs";
 
             if (saveEntity.ShowDialog() == DialogResult.OK)
@@ -215,37 +221,13 @@ namespace Hxj.Tools.EntityDesign
 
         private void Btn_MakeDal_Click(object sender, EventArgs e)
         {
-            
-            
-            if (!CheckContent()) { return; }
-            var Fullfilename = Environment.CurrentDirectory + @"\BuildModelEntityTemplate.Tem";
-            if (!File.Exists(Fullfilename)) { MessageBox.Show("模板文件"+ Fullfilename + "不存在!");return; }
-            var fileContent = string.Empty;
-            using (StreamReader sr = new StreamReader(Fullfilename, Encoding.UTF8))
-            {
-                fileContent=sr.ReadToEnd();
+            VariableAssignment();
+            IDal idal = new IDal();
+            fileName = "IDal";
+            txtContent.Text = idal.TransformText();
+            tabControl1.SelectedIndex = 1;
 
-            }
-            List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
 
-            foreach (ColumnInfo col in columns)
-            {
-
-                col.IsPK = false;
-
-                foreach (object o in cbPrimarykey.Items)
-                {
-                    if (col.ColumnName.Equals(o.ToString()))
-                    {
-                        col.IsPK = true;
-                        break;
-                    }
-                }
-            }
-            EntityBuilder builder = new EntityBuilder(TableName, txtnamespace.Text, txtClassName.Text, columns, IsView, cbToupperFrstword.Checked, ConnectionModel.DbType.ToString(), cbEntityTableName.Checked);
-            
-            txtTemplate.Text = builder.BuilderModelEntityFromTemplate(fileContent);
-            tabControl1.SelectedTab = tabControl1.TabPages[2];
         }
         private  bool CheckContent()
         {
@@ -269,6 +251,12 @@ namespace Hxj.Tools.EntityDesign
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            VariableAssignment();
+            fileName = txtClassName.Text;
+            IEntity ie = new IEntity();
+            txtContent.Text = ie.TransformText();
+            tabControl1.SelectedIndex = 1;
+
         }
     }
 }
