@@ -1,26 +1,66 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dos.Model;
 using Dos.ORM;
 
-namespace Dos.Tools.T4
+namespace Dos.T4
 {
-    public class ConcreateActiveYear:IAbsactActiveYear
+    public partial  class ConcreateActiveYear : IAbsactActiveYear
     {
-        public Entity GetEntityFromID(int ID)
+        public Activeyear GetNewActiveYear()
         {
-            throw new System.NotImplementedException();
+            return new Activeyear();
+          
         }
 
-        public List<Entity> GetEntityListFromCuston(int ID)
+        public bool DeleteEntity(List<int> ids)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public List<Entity> GetEntityListFromCuston(int ID, int PageSize, int PageIndex)
+        public bool DeleteEntity(Activeyear t)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public Activeyear NewActiveYear { get; }
+        public bool DeleteEntity(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Activeyear GetEntityFromID(int ID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Activeyear> GetEntityListFromCuston(int ID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Activeyear> GetEntityListFromCuston(int ID, int PageSize, int PageIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool InsertEntity(List<Activeyear> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool InsertEntity(Activeyear t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpateEntity(List<Activeyear> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateEntity(Activeyear t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -171,14 +171,28 @@
     <Compile Include="T4\ConcreateDalFactory.cs" />
     <Compile Include="T4\IAbsactActiveYear.cs" />
     <Compile Include="T4\IDAL.cs" />
-    <Compile Include="T4\IAbactEntityDalFactory.cs" />
+    <Compile Include="T4\IEntityDalFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IEntityDalFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\IEntityFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IEntityFactory.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4\MakeEntity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MakeEntity.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="T4\T4Generated.cs" />
+    <Compile Include="T4\RuntimeTextTemplate1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RuntimeTextTemplate1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\T4GeneratedVarDefine.cs" />
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -291,12 +305,25 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="T4\IEntityDalFactory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IEntityDalFactory.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4\IEntityFactory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IEntityFactory.cs</LastGenOutput>
+    </Content>
     <Content Include="T4\MakeEntity.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MakeEntity.cs</LastGenOutput>
       <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
 &lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
+    </Content>
+    <Content Include="T4\RuntimeTextTemplate1.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RuntimeTextTemplate1.cs</LastGenOutput>
     </Content>
     <Content Include="实体生成器更新日志.txt" />
   </ItemGroup>

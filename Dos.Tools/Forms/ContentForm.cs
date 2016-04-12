@@ -10,7 +10,7 @@ using Dos.Tools.Common;
 using Dos.Tools.DbDAL;
 using Dos.Tools.DbDAL.Sqlite;
 using Dos.Tools.Model;
-
+using Dos.T4;
 namespace Hxj.Tools.EntityDesign
 {
     public partial class ContentForm : WeifenLuo.WinFormsUI.Docking.DockContent
@@ -175,14 +175,14 @@ namespace Hxj.Tools.EntityDesign
             Utils.WriteNamespace(txtnamespace.Text);
 
             List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
-            Dos.Tools.T4.MakeEntity mk = new Dos.Tools.T4.MakeEntity();
+           MakeEntity mk = new MakeEntity();
             mk._tableName = TableName;
             mk._nameSpace = txtnamespace.Text;
             mk._IsView = IsView;
             mk._className = txtClassName.Text;
-            mk.Columns = columns;
+            mk._columns = columns;
             mk._isSZMDX = cbToupperFrstword.Checked;
-            Dos.Tools.T4.MakeEntity._appPath = Application.StartupPath;
+            MakeEntity._appPath = Application.StartupPath;
             mk._dbType = ConnectionModel.DbType;
 
 

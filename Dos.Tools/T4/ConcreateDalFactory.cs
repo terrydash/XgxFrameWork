@@ -1,10 +1,12 @@
-﻿namespace Dos.Tools.T4
+﻿using System;
+using Dos.Model;
+namespace Dos.T4
 {
-    public  partial class ConcreateDalFactory :IAbactEntityDalFactory
+    public partial class ConcreateDalFactory : IEntityDalFactory
     {
-        public IAbsactActiveYear CreatActiveYear()
+        public IAbsactActiveYear CreatActiveYearDal()
         {
-            throw new System.NotImplementedException();
+            return new ConcreateActiveYear();
         }
-    }
+    }   
 }

@@ -1,9 +1,9 @@
 ﻿using Dos.Model;
 
-namespace Dos.Tools.T4
+namespace Dos.T4
 {
-    public interface IAbsactActiveYear:IDAL<Activeyear>
+    public partial interface IAbsactActiveYear:IDAL<Activeyear>
     {
-        Activeyear NewActiveYear { get;  }
+        Activeyear GetNewActiveYear();
     }
 }

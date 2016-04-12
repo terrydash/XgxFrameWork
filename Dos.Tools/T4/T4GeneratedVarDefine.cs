@@ -10,22 +10,34 @@ using Dos.Tools.DbDAL;
 using System;
 using System.Xml;
 
-namespace Dos.Tools.T4
+namespace Dos.T4
 {
-    #region  生成实体类
+    //用于定于常用的变量
+    public partial class VarDefine
+    {
+        public static string TableName { get; set; }
+        public static string NameSpace { get; set; }
+        public static string ClassName { get; set; }
+        public static List<ColumnInfo> Columns { get; set; }
+
+    }
+
+    
+
+    #region  生成实体的模版MakeEntity.tt的变量定义
     /// <summary>
     /// 生成实体类
     /// </summary>
     public partial class MakeEntity
     {
-        public List<ColumnInfo> Columns = new List<ColumnInfo>();
-        public string _nameSpace = string.Empty;
-        public string _tableName = string.Empty;
-        public string _className = string.Empty;
-        public static string _appPath = string.Empty;
-        public bool _IsView = false;
-        public bool _isSZMDX = false;
-        public string _dbType = string.Empty;
+        private List<ColumnInfo> _columns =VarDefine.Columns ;
+        private string _nameSpace = VarDefine.NameSpace;
+        private string _tableName = VarDefine.TableName;
+        private string _className = VarDefine.ClassName;
+        private static string _appPath = string.Empty;
+        private bool _IsView = false;
+        private bool _isSZMDX = false;
+        private  string _dbType = string.Empty;
         
 
     public class DbToCS
@@ -77,7 +89,7 @@ namespace Dos.Tools.T4
                         }
                     }
 
-                    Dos.ORM.Cache.Default.AddCacheFilesDependency(cachekeystring, types, DbTypePath);
+                    Cache.Default.AddCacheFilesDependency(cachekeystring, types, DbTypePath);
 
                 }
 
@@ -131,4 +143,13 @@ namespace Dos.Tools.T4
     }
     #endregion
 
+
+    #region 实体工厂的IEntityFactory.tt的用于模版生成的变量定义
+    public partial class IEntityFactory
+    { 
+       
+    }
+
+
+    #endregion
 }
