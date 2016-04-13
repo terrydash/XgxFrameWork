@@ -1,0 +1,27 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #><#@ assembly name="System.Data" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Common.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Orm.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Tools.Classes.dll" #><#@ import namespace="System.Linq" #><#@ import namespace="System.Text" #><#@ import namespace="System.Collections.Generic" #><#@ import namespace="System.Data" #><#@ import namespace="Dos.Tools.Common" #><#@ import namespace="Dos.Tools.Model" #><#@ import namespace="Dos.ORM" #><#@ import namespace="Dos.Common" #><#@ import namespace="Dos.T4" #><#@ import namespace="Dos.Tools.DbDAL" #>
+using System;
+using System.Data;
+using System.Collections.Generic;
+using System.Data.Common;
+using Dos.ORM;
+using Dos.ORM.Common;
+
+namespace <#= VarDefine.NameSpace #>
+{
+	public partial interface IDal<T>
+    {
+        //Entity GetEntityFromGuid(Guid guid);
+        //根据主键获取实体ID
+        T GetEntityFromID(int id);
+        List<T> GetEntityListFromCuston(int id);
+        List<T> GetEntityListFromCuston(int id,int pageSize,int pageIndex);
+        bool InsertEntity(T t);
+        bool InsertEntity(List<T> list);
+        bool DeleteEntity(int id);
+        bool DeleteEntity(T t);
+        bool DeleteEntity(List<int> ids);
+        bool UpdateEntity(T t);
+        bool UpateEntity(List<T> list);
+	}
+}

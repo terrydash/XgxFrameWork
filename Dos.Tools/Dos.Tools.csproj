@@ -176,16 +176,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IEntityFactory.tt</DependentUpon>
     </Compile>
-    <Compile Include="T4\IDal1.cs">
+    <Compile Include="T4\MakeModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>IDal.tt</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="T4\MakeEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MakeEntity.tt</DependentUpon>
+      <DependentUpon>MakeModel.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="T4\IEntity.cs">
@@ -194,8 +188,17 @@
       <DependentUpon>IEntity.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="T4\MakeIDal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeIDal.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4\T4GeneratedVarDefine.cs" />
-    <Compile Include="T4\Test\IDal.cs" />
+    <Compile Include="T4\IDal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IDal.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -320,15 +323,9 @@
 &lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
       <CustomToolNamespace>Dos.T4</CustomToolNamespace>
     </Content>
-    <Content Include="T4\IDal.tt">
+    <Content Include="T4\MakeModel.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>IDal1.cs</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
-    </Content>
-    <Content Include="T4\MakeEntity.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MakeEntity.cs</LastGenOutput>
+      <LastGenOutput>MakeModel.cs</LastGenOutput>
       <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
 &lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -339,6 +336,17 @@
       <LastGenOutput>IEntity.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CustomToolNamespace>Dos.T4</CustomToolNamespace>
+    </Content>
+    <Content Include="T4\IDal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IDal.cs</LastGenOutput>
+      <TransformOnBuild>True</TransformOnBuild>
+      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
+      <FormatOutput>True</FormatOutput>
+    </Content>
+    <Content Include="T4\MakeIDal.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MakeIDal.cs</LastGenOutput>
     </Content>
     <Content Include="实体生成器更新日志.txt" />
   </ItemGroup>
@@ -373,6 +381,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="T4\Test\" />
     <Folder Include="其它方式生成实体\T4模板\" />
   </ItemGroup>
   <ItemGroup>

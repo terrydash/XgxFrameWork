@@ -25,7 +25,7 @@ namespace Dos.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\EntityFactory.tt"
+    #line 1 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\EntityFactory.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class EntityFactory : EntityFactoryBase
     {
@@ -38,14 +38,14 @@ namespace Dos.T4
             this.Write("using System;\r\nusing System.Data;\r\nusing System.Data.Common;\r\nusing Dos.ORM;\r\nusi" +
                     "ng Dos.ORM.Common;\r\nusing ");
             
-            #line 7 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\EntityFactory.tt"
+            #line 7 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\EntityFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write(";\r\nnamespace ");
             
-            #line 8 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\EntityFactory.tt"
+            #line 8 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\EntityFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default

@@ -13,6 +13,7 @@ using Dos.Tools.Model;
 using Dos.T4;
 using System.Collections;
 using System.Reflection;
+using Dos.Tools.T4;
 
 namespace Hxj.Tools.EntityDesign
 {
@@ -194,7 +195,7 @@ namespace Hxj.Tools.EntityDesign
             
             VariableAssignment();
             fileName = txtClassName.Text;
-            MakeEntity mk = new MakeEntity();
+            var mk = new MakeModel();
             txtContent.Text = mk.TransformText();
 
             tabControl1.SelectedIndex = 1;
@@ -225,9 +226,9 @@ namespace Hxj.Tools.EntityDesign
         private void Btn_MakeDal_Click(object sender, EventArgs e)
         {
             VariableAssignment();
-            IDal idal = new IDal();
+            MakeIDal mkIDal = new MakeIDal();
             fileName = "IDal";
-            txtContent.Text = idal.TransformText();
+            txtContent.Text = mkIDal.TransformText();
             tabControl1.SelectedIndex = 1;
 
 
@@ -264,6 +265,11 @@ namespace Hxj.Tools.EntityDesign
            
 
 
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
 
         }
     }

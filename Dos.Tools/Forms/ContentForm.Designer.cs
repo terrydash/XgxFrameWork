@@ -60,6 +60,8 @@
             this.Btn_MakeModel = new System.Windows.Forms.Button();
             this.gridColumns = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.contextMenuStripSave.SuspendLayout();
             this.tp3.SuspendLayout();
             this.tp2.SuspendLayout();
@@ -143,6 +145,8 @@
             // 
             // tp1
             // 
+            this.tp1.Controls.Add(this.button8);
+            this.tp1.Controls.Add(this.button7);
             this.tp1.Controls.Add(this.button1);
             this.tp1.Controls.Add(this.Btn_MakeDal);
             this.tp1.Controls.Add(this.button6);
@@ -397,6 +401,27 @@
             this.tabControl1.Size = new System.Drawing.Size(875, 586);
             this.tabControl1.TabIndex = 0;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(157, 449);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(107, 21);
+            this.button7.TabIndex = 14;
+            this.button7.Text = "生成IModel";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(448, 449);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(107, 21);
+            this.button8.TabIndex = 15;
+            this.button8.Text = "生成IModel";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // ContentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -453,5 +478,7 @@
         private System.Windows.Forms.TabPage tp2;
         private System.Windows.Forms.RichTextBox txtTemplate;
         private System.Windows.Forms.TabPage tp3;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
     }
 }

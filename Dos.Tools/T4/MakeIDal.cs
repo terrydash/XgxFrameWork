@@ -7,7 +7,7 @@
 //     重新生成代码，则所做更改将丢失。
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Dos.T4
+namespace Dos.Tools.T4
 {
     using System.Linq;
     using System.Text;
@@ -25,9 +25,9 @@ namespace Dos.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IDal.tt"
+    #line 1 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\MakeIDal.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class IDal : IDalBase
+    public partial class MakeIDal : MakeIDalBase
     {
 #line hidden
         /// <summary>
@@ -35,30 +35,23 @@ namespace Dos.T4
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using System;\r\nusing System.Data;\r\nusing System.Collections.Generic;\r\nusing Syste" +
-                    "m.Data.Common;\r\nusing Dos.ORM;\r\nusing Dos.ORM.Common;\r\nusing ");
+            this.Write("using System;\nusing System.Data;\nusing System.Collections.Generic;\nusing System.D" +
+                    "ata.Common;\nusing Dos.ORM;\nusing Dos.ORM.Common;\n\nnamespace ");
             
-            #line 8 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IDal.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\nnamespace ");
-            
-            #line 9 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IDal.tt"
+            #line 3 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\MakeIDal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write(@"
 {
-	public partial interface IDAL<T>
+	public partial interface IDal<T>
     {
         //Entity GetEntityFromGuid(Guid guid);
         //根据主键获取实体ID
-        T GetEntityFromID(int ID);
-        List<T> GetEntityListFromCuston(int ID);
-        List<T> GetEntityListFromCuston(int ID,int PageSize,int PageIndex);
+        T GetEntityFromID(int id);
+        List<T> GetEntityListFromCuston(int id);
+        List<T> GetEntityListFromCuston(int id,int pageSize,int pageIndex);
         bool InsertEntity(T t);
         bool InsertEntity(List<T> list);
         bool DeleteEntity(int id);
@@ -79,7 +72,7 @@ namespace Dos.T4
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class IDalBase
+    public class MakeIDalBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

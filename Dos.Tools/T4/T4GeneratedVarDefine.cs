@@ -30,11 +30,11 @@ namespace Dos.T4
 
 
 
-    #region  生成实体的模版MakeEntity.tt的变量定义
+    #region  生成实体的模版MakeModel.tt的变量定义
     /// <summary>
     /// 生成实体类
     /// </summary>
-    public partial class MakeEntity
+    public partial class MakeModel
     {
         private List<ColumnInfo> _columns =VarDefine.Columns ;
         private string _nameSpace = VarDefine.NameSpace;
