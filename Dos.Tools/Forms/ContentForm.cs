@@ -11,6 +11,9 @@ using Dos.Tools.DbDAL;
 using Dos.Tools.DbDAL.Sqlite;
 using Dos.Tools.Model;
 using Dos.T4;
+using System.Collections;
+using System.Reflection;
+
 namespace Hxj.Tools.EntityDesign
 {
     public partial class ContentForm : WeifenLuo.WinFormsUI.Docking.DockContent
@@ -254,8 +257,13 @@ namespace Hxj.Tools.EntityDesign
             VariableAssignment();
             fileName = txtClassName.Text;
             IEntity ie = new IEntity();
+            fileName = "I"+ txtClassName.Text; 
             txtContent.Text = ie.TransformText();
             tabControl1.SelectedIndex = 1;
+            
+           
+
+
 
         }
     }

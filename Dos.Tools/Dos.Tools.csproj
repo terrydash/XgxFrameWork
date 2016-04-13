@@ -166,7 +166,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="T4\ActiveYearEntity.cs" />
+    <Compile Include="T4\EntityFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\IEntityFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IEntityFactory.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4\IDal1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +195,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="T4\T4GeneratedVarDefine.cs" />
+    <Compile Include="T4\Test\IDal.cs" />
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -297,6 +307,18 @@
     <Content Include="Config\sysconfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="T4\EntityFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityFactory.cs</LastGenOutput>
+      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
+    </Content>
+    <Content Include="T4\IEntityFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>IEntityFactory.cs</LastGenOutput>
+      <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
+&lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
+      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
     </Content>
     <Content Include="T4\IDal.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

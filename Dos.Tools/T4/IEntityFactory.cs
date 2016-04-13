@@ -25,9 +25,9 @@ namespace Dos.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+    #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntityFactory.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class IEntity : IEntityBase
+    public partial class IEntityFactory : IEntityFactoryBase
     {
 #line hidden
         /// <summary>
@@ -38,54 +38,19 @@ namespace Dos.T4
             this.Write("using System;\r\nusing System.Data;\r\nusing System.Data.Common;\r\nusing Dos.ORM;\r\nusi" +
                     "ng Dos.ORM.Common;\r\nusing ");
             
-            #line 7 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 7 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntityFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write(";\r\nnamespace ");
             
-            #line 8 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 8 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntityFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n\tpublic partial interface I");
-            
-            #line 10 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write(":IDal\r\n\t{\r\n\t\t");
-            
-            #line 12 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write(" GetNew");
-            
-            #line 12 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write("();\r\n\t}\r\n\tpublic partial interface IEntityFactory\r\n\t{\r\n\t\tI");
-            
-            #line 16 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write(" CreatNewI");
-            
-            #line 16 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write("();\r\n\t}\r\n}\r\n\r\n");
+            this.Write("\r\n{\r\n\tpublic partial interface IEntityFactory\r\n\t{\r\n\t\t\r\n\t}\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }
@@ -97,7 +62,7 @@ namespace Dos.T4
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class IEntityBase
+    public class IEntityFactoryBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

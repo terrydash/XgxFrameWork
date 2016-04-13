@@ -7,9 +7,13 @@ using Dos.ORM.Common;
 using <#= VarDefine.NameSpace #>;
 namespace <#= VarDefine.NameSpace #>
 {
-	public partial interface I<#= VarDefine.ClassName #>
+	public partial interface I<#= VarDefine.ClassName #>:IDal
 	{
 		<#= VarDefine.ClassName #> GetNew<#= VarDefine.ClassName #>();
+	}
+	public partial interface IEntityFactory
+	{
+		I<#= VarDefine.ClassName #> CreatNewI<#= VarDefine.ClassName #>();
 	}
 }
 

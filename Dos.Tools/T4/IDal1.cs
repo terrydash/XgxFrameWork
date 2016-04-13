@@ -25,7 +25,7 @@ namespace Dos.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IDal.tt"
+    #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IDal.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class IDal : IDalBase
     {
@@ -38,14 +38,14 @@ namespace Dos.T4
             this.Write("using System;\r\nusing System.Data;\r\nusing System.Collections.Generic;\r\nusing Syste" +
                     "m.Data.Common;\r\nusing Dos.ORM;\r\nusing Dos.ORM.Common;\r\nusing ");
             
-            #line 8 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IDal.tt"
+            #line 8 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IDal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write(";\r\nnamespace ");
             
-            #line 9 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IDal.tt"
+            #line 9 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\IDal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
@@ -66,6 +66,7 @@ namespace Dos.T4
         bool DeleteEntity(List<int> ids);
         bool UpdateEntity(T t);
         bool UpateEntity(List<T> list);
+	}
 }");
             return this.GenerationEnvironment.ToString();
         }
