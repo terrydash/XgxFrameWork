@@ -193,6 +193,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MakeIDal.tt</DependentUpon>
     </Compile>
+    <Compile Include="T4\MakeT4EntityFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeT4EntityFactory.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4\T4GeneratedVarDefine.cs" />
     <Compile Include="T4\IDal.cs">
       <AutoGen>True</AutoGen>
@@ -347,6 +352,10 @@
     <Content Include="T4\MakeIDal.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MakeIDal.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4\MakeT4EntityFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MakeT4EntityFactory.cs</LastGenOutput>
     </Content>
     <Content Include="实体生成器更新日志.txt" />
   </ItemGroup>

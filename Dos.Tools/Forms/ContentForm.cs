@@ -24,6 +24,8 @@ namespace Hxj.Tools.EntityDesign
             InitializeComponent();
         }
         private string fileName { get; set; }
+        private string Filtername { get; set; }
+
         public string Content
         {
             get { return content; }
@@ -196,6 +198,7 @@ namespace Hxj.Tools.EntityDesign
             VariableAssignment();
             fileName = txtClassName.Text;
             var mk = new MakeModel();
+            Filtername = "CS 文件|*.cs";
             txtContent.Text = mk.TransformText();
 
             tabControl1.SelectedIndex = 1;
@@ -210,7 +213,7 @@ namespace Hxj.Tools.EntityDesign
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveEntity.FileName = fileName;
-            saveEntity.Filter = "CS 文件|*.cs";
+            saveEntity.Filter = Filtername;
 
             if (saveEntity.ShowDialog() == DialogResult.OK)
             {
@@ -228,6 +231,7 @@ namespace Hxj.Tools.EntityDesign
             VariableAssignment();
             MakeIDal mkIDal = new MakeIDal();
             fileName = "IDal";
+            Filtername= "CS 文件|*.cs";
             txtContent.Text = mkIDal.TransformText();
             tabControl1.SelectedIndex = 1;
 
@@ -258,7 +262,8 @@ namespace Hxj.Tools.EntityDesign
             VariableAssignment();
             fileName = txtClassName.Text;
             IEntity ie = new IEntity();
-            fileName = "I"+ txtClassName.Text; 
+            fileName = "I"+ txtClassName.Text;
+            Filtername = "CS 文件|*.cs";
             txtContent.Text = ie.TransformText();
             tabControl1.SelectedIndex = 1;
             
@@ -270,7 +275,12 @@ namespace Hxj.Tools.EntityDesign
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            VariableAssignment();
+            fileName = "T4EntityFactory";
+            Filtername = "TT 文件|*.tt";
+            MakeT4EntityFactory makeT4Entity = new MakeT4EntityFactory();
+            txtContent.Text = makeT4Entity.TransformText();
+            tabControl1.SelectedIndex = 1;
         }
     }
 }

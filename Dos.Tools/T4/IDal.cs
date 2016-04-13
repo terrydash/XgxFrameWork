@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+
+
+using System;
 using System.Data;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -23,5 +26,3 @@ namespace Dos.T4
         bool UpateEntity(List<T> list);
 	}
 }
-
-

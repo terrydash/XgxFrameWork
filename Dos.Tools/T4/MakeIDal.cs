@@ -25,7 +25,7 @@ namespace Dos.Tools.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\MakeIDal.tt"
+    #line 1 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\MakeIDal.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class MakeIDal : MakeIDalBase
     {
@@ -38,7 +38,7 @@ namespace Dos.Tools.T4
             this.Write("using System;\nusing System.Data;\nusing System.Collections.Generic;\nusing System.D" +
                     "ata.Common;\nusing Dos.ORM;\nusing Dos.ORM.Common;\n\nnamespace ");
             
-            #line 3 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\MakeIDal.tt"
+            #line 3 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\MakeIDal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default

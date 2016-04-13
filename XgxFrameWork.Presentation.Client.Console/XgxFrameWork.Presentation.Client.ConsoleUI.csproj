@@ -41,10 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppendCC.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="IAppendCC.cs" />
+    <Compile Include="IDal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dos.Common\Dos.Common.csproj">
+      <Project>{b9fef835-ec96-4314-a77d-fffea7c43bee}</Project>
+      <Name>Dos.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dos.ORM\Dos.ORM.csproj">
+      <Project>{4bef1983-f275-4807-96ea-25b973bd6e94}</Project>
+      <Name>Dos.ORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dos.Tools.Classes\Dos.Tools.Classes.csproj">
+      <Project>{0b5cc811-99e4-4cd3-8fa6-78f68fe97866}</Project>
+      <Name>Dos.Tools.Classes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RedisCacheManager\XgxFrameWork.CacheLayer.RedisCacheManager.csproj">
       <Project>{1726f0d9-2951-41fe-b4d4-9050e358a162}</Project>
       <Name>XgxFrameWork.CacheLayer.RedisCacheManager</Name>

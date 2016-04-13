@@ -1,0 +1,128 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #><#@ assembly name="System.Data" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Common.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Orm.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Tools.Classes.dll" #><#@ import namespace="System.Linq" #><#@ import namespace="System.Text" #><#@ import namespace="System.Collections.Generic" #><#@ import namespace="System.Data" #><#@ import namespace="Dos.Tools.Common" #><#@ import namespace="Dos.Tools.Model" #><#@ import namespace="Dos.ORM" #><#@ import namespace="Dos.Common" #><#@ import namespace="Dos.T4" #><#@ import namespace="Dos.Tools.DbDAL" #>
+<# 
+var asciiCode= 60;
+System.Text.ASCIIEncoding asciiEncoding = new System.Text.ASCIIEncoding();
+byte[] byteArray = new byte[] { (byte)asciiCode };
+
+string left =asciiEncoding.GetString(byteArray);//<
+asciiCode= 62;
+byteArray = new byte[] { (byte)asciiCode };
+string right=asciiEncoding.GetString(byteArray);//>
+#>
+<#= left #>#@ template language="C#" #<#=right#>
+<#= left #>#@ assembly name="System.Core" #<#=right#>
+<#= left #>#@ assembly name="System.Data" #<#=right#>
+<#= left #>#@ assembly name="System.Collections" #<#=right#>
+<#= left #>#@ assembly name="$(ProjectDir)bin\Debug\Dos.Common.dll" #<#=right#>
+<#= left #>#@ assembly name="$(ProjectDir)bin\Debug\Dos.Orm.dll" #<#=right#>
+<#= left #>#@ assembly name="$(ProjectDir)bin\Debug\\<#= VarDefine.NameSpace #>.dll" #<#=right#>
+<#= left #>#@ import namespace="System.Linq" #<#=right#>
+<#= left #>#@ import namespace="System.Text" #<#=right#>
+<#= left #>#@ import namespace="System.Collections.Generic" #<#=right#>
+<#= left #>#@ import namespace="System.Data" #<#=right#>
+<#= left #>#@ import namespace="Dos.ORM" #<#=right#>
+<#= left #>#@ import namespace="Dos.Common" #<#=right#>
+<#= left #>#@ import namespace="<#= VarDefine.NameSpace #>" #<#=right#>
+<#= left #>#
+#region 生成接口拥有的方法
+                var type = typeof(IDal<<#= VarDefine.ClassName #>>);
+                var gettype = type.GetMethods();
+
+                StringBuilder Methods = new StringBuilder();
+                string returnType = string.Empty;
+                string classType = string.Empty;
+                StringBuilder stringBuilder = new StringBuilder();
+                StringBuilder stringBuilder2 = new StringBuilder();
+                foreach (var VARIABLE in gettype)
+                {
+                    returnType = VARIABLE.ReturnType.ToString()
+
+                                    .Replace(typeof(List<>).Namespace + ".", string.Empty)
+                                    .Replace(typeof(int).Namespace + ".", string.Empty)
+                                    .Replace(typeof(<#= VarDefine.ClassName #>).Namespace + ".", string.Empty)
+                                    .Replace("`1", "")
+                                    .Replace("[", "<")
+                                    .Replace("]", ">");
+
+
+
+
+                    if (VARIABLE.IsPublic)
+                    {
+                        classType = "public ";
+                    }
+                    if (VARIABLE.IsPrivate)
+                    {
+                        classType = "private ";
+                    }
+                    if (VARIABLE.IsStatic)
+                    {
+                        classType += " static";
+                    }
+                    var Parameters = VARIABLE.GetParameters();
+                    foreach (var VARIABLEP in Parameters)
+                    {
+                        stringBuilder.Append(",");
+                        stringBuilder.Append(
+                            VARIABLEP.ToString()
+                               .Replace(typeof(List<>).Namespace + ".", string.Empty)
+                                .Replace(typeof(int).Namespace + ".", string.Empty)
+                                .Replace(typeof(<#= VarDefine.ClassName #>).Namespace + ".", string.Empty)
+                                .Replace("`1", "")
+                                .Replace("[", "<")
+                                .Replace("]", ">"));
+
+
+
+
+                    }
+                    if (Parameters.Length > 0)
+                    {
+                        stringBuilder.Remove(0, 1);
+
+                    }
+                    else
+                    {
+                        stringBuilder.Clear();
+                    }
+
+
+
+                    stringBuilder2.Append("					").Append(classType).Append(returnType).Append(" ").Append(VARIABLE.Name).Append("(").Append(stringBuilder).Append(")");
+                    stringBuilder.Clear();
+                    stringBuilder2.AppendLine();
+					stringBuilder2.AppendLine("					{");
+                    stringBuilder2.AppendLine("					throw new NotImplementedException();");
+                    stringBuilder2.AppendLine("					}");
+                    Methods.Append(stringBuilder2);
+
+
+                    stringBuilder2.Clear();
+
+                }
+
+
+
+
+
+                #endregion
+#<#=right#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using <#= VarDefine.NameSpace #>;
+namespace <#= VarDefine.NameSpace #>
+{
+	public partial class <#= VarDefine.ClassName #>Factory:I<#= VarDefine.ClassName #>
+		
+		{
+			<#= left #>#= Methods.ToString()#<#=right#>
+
+
+		}
+
+}
+

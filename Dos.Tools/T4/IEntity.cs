@@ -25,7 +25,7 @@ namespace Dos.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+    #line 1 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class IEntity : IEntityBase
     {
@@ -38,49 +38,56 @@ namespace Dos.T4
             this.Write("using System;\r\nusing System.Data;\r\nusing System.Data.Common;\r\nusing Dos.ORM;\r\nusi" +
                     "ng Dos.ORM.Common;\r\nusing ");
             
-            #line 7 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 7 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write(";\r\nnamespace ");
             
-            #line 8 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 8 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n\tpublic partial interface I");
             
-            #line 10 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 10 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
             
             #line default
             #line hidden
-            this.Write(":IDal\r\n\t{\r\n\t\t");
+            this.Write(":IDal<");
             
-            #line 12 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 10 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n\t{\r\n\t\t");
+            
+            #line 12 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
             
             #line default
             #line hidden
             this.Write(" GetNew");
             
-            #line 12 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 12 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
             
             #line default
             #line hidden
             this.Write("();\r\n\t}\r\n\tpublic partial interface IEntityFactory\r\n\t{\r\n\t\tI");
             
-            #line 16 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 16 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
             
             #line default
             #line hidden
             this.Write(" CreatNewI");
             
-            #line 16 "D:\Coder\mygithub\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
+            #line 16 "G:\develop\workplace\dotnet\my\XgxFrameWork\Dos.Tools\T4\IEntity.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
             
             #line default
