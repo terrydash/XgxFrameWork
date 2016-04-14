@@ -13,9 +13,9 @@ namespace <#= VarDefine.NameSpace #>
 {
 	public partial class <#= VarDefine.ClassName #>Factory:I<#= VarDefine.ClassName #>
 	{
-<#=  
-content
-#>			
+	<#=  
+	content
+	#>			
 	
 	
 	}

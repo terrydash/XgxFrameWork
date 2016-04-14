@@ -26,12 +26,13 @@ namespace Dos.T4
     /// <summary>
     /// 接口内的方法与与实际操作方法的对应类 便于根据接口里的方法名字生成对应操作
     /// </summary>
-    public partial class Interface2MethodMap
+    public  class Interface2MethodMap
     {
         public string InterfaceName { get; set; }//接口名
         public string MethodName { get; set; }//生成的方法名
-        public DatabaseType DatabaseType {get;set; }
+        public DataOperType DataOperType { get;set; }//方法针对数据库是什么操作 用来与Dos.Orm接口对应
     }
+
     #region 公用常量定义
     //用于定于常用的变量
     public partial class VarDefine

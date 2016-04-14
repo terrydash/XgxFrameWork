@@ -73,7 +73,7 @@ namespace Dos.Tools.T4
             
             #line default
             #line hidden
-            this.Write("\r\n\t{\r\n");
+            this.Write("\r\n\t{\r\n\t");
             
             #line 8 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeEntityFactoryMethods.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(content));
