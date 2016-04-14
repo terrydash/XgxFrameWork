@@ -40,7 +40,6 @@
             this.txtContent = new System.Windows.Forms.RichTextBox();
             this.tp1 = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Btn_MakeDal = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -62,6 +61,7 @@
             this.Btn_MakeModel = new System.Windows.Forms.Button();
             this.gridColumns = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button9 = new System.Windows.Forms.Button();
             this.contextMenuStripSave.SuspendLayout();
             this.tp3.SuspendLayout();
             this.tp2.SuspendLayout();
@@ -77,13 +77,13 @@
             this.contextMenuStripSave.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.保存ToolStripMenuItem});
             this.contextMenuStripSave.Name = "contextMenuStripSave";
-            this.contextMenuStripSave.Size = new System.Drawing.Size(170, 30);
+            this.contextMenuStripSave.Size = new System.Drawing.Size(166, 30);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
             this.保存ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.保存ToolStripMenuItem.Text = "保存";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
@@ -124,9 +124,9 @@
             this.tp2.Controls.Add(this.txtContent);
             this.tp2.ImageIndex = 1;
             this.tp2.Location = new System.Drawing.Point(4, 4);
-            this.tp2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp2.Margin = new System.Windows.Forms.Padding(4);
             this.tp2.Name = "tp2";
-            this.tp2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp2.Padding = new System.Windows.Forms.Padding(4);
             this.tp2.Size = new System.Drawing.Size(1159, 703);
             this.tp2.TabIndex = 1;
             this.tp2.Text = "实体代码查看";
@@ -146,8 +146,8 @@
             // 
             // tp1
             // 
+            this.tp1.Controls.Add(this.button9);
             this.tp1.Controls.Add(this.button8);
-            this.tp1.Controls.Add(this.button7);
             this.tp1.Controls.Add(this.button1);
             this.tp1.Controls.Add(this.Btn_MakeDal);
             this.tp1.Controls.Add(this.button6);
@@ -160,9 +160,9 @@
             this.tp1.Controls.Add(this.gridColumns);
             this.tp1.ImageIndex = 0;
             this.tp1.Location = new System.Drawing.Point(4, 4);
-            this.tp1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp1.Margin = new System.Windows.Forms.Padding(4);
             this.tp1.Name = "tp1";
-            this.tp1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp1.Padding = new System.Windows.Forms.Padding(4);
             this.tp1.Size = new System.Drawing.Size(1159, 703);
             this.tp1.TabIndex = 0;
             this.tp1.Text = "生成设置";
@@ -171,28 +171,18 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(597, 561);
+            this.button8.Location = new System.Drawing.Point(29, 665);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(143, 26);
             this.button8.TabIndex = 15;
-            this.button8.Text = "生成IModel";
+            this.button8.Text = "生成总Factory";
             this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(209, 561);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(143, 26);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "T4EntityFactory";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(351, 662);
+            this.button1.Location = new System.Drawing.Point(351, 665);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 26);
@@ -206,7 +196,7 @@
             this.Btn_MakeDal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_MakeDal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Btn_MakeDal.Location = new System.Drawing.Point(209, 662);
-            this.Btn_MakeDal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_MakeDal.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_MakeDal.Name = "Btn_MakeDal";
             this.Btn_MakeDal.Size = new System.Drawing.Size(119, 29);
             this.Btn_MakeDal.TabIndex = 12;
@@ -218,21 +208,21 @@
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Enabled = false;
             this.button6.Location = new System.Drawing.Point(351, 608);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(143, 29);
             this.button6.TabIndex = 11;
-            this.button6.Text = "生成 Repository";
+            this.button6.Text = "生成 DBsession";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button5.Location = new System.Drawing.Point(999, 608);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(143, 29);
             this.button5.TabIndex = 10;
@@ -245,7 +235,7 @@
             this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(825, 608);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(148, 29);
             this.button4.TabIndex = 9;
@@ -258,7 +248,7 @@
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(657, 608);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(143, 29);
             this.button3.TabIndex = 8;
@@ -271,7 +261,7 @@
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(519, 608);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 29);
             this.button2.TabIndex = 7;
@@ -292,9 +282,9 @@
             this.groupBox1.Controls.Add(this.cbPrimarykey);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(4, 366);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1151, 189);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -306,7 +296,7 @@
             this.cbEntityTableName.Checked = true;
             this.cbEntityTableName.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbEntityTableName.Location = new System.Drawing.Point(25, 146);
-            this.cbEntityTableName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbEntityTableName.Margin = new System.Windows.Forms.Padding(4);
             this.cbEntityTableName.Name = "cbEntityTableName";
             this.cbEntityTableName.Size = new System.Drawing.Size(220, 19);
             this.cbEntityTableName.TabIndex = 7;
@@ -317,7 +307,7 @@
             // 
             this.cbToupperFrstword.AutoSize = true;
             this.cbToupperFrstword.Location = new System.Drawing.Point(365, 146);
-            this.cbToupperFrstword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbToupperFrstword.Margin = new System.Windows.Forms.Padding(4);
             this.cbToupperFrstword.Name = "cbToupperFrstword";
             this.cbToupperFrstword.Size = new System.Drawing.Size(104, 19);
             this.cbToupperFrstword.TabIndex = 6;
@@ -327,7 +317,7 @@
             // btnRemovePrimarykey
             // 
             this.btnRemovePrimarykey.Location = new System.Drawing.Point(556, 34);
-            this.btnRemovePrimarykey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemovePrimarykey.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemovePrimarykey.Name = "btnRemovePrimarykey";
             this.btnRemovePrimarykey.Size = new System.Drawing.Size(100, 29);
             this.btnRemovePrimarykey.TabIndex = 3;
@@ -338,7 +328,7 @@
             // btnAddPrimarykey
             // 
             this.btnAddPrimarykey.Location = new System.Drawing.Point(429, 35);
-            this.btnAddPrimarykey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddPrimarykey.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPrimarykey.Name = "btnAddPrimarykey";
             this.btnAddPrimarykey.Size = new System.Drawing.Size(100, 29);
             this.btnAddPrimarykey.TabIndex = 2;
@@ -349,7 +339,7 @@
             // txtClassName
             // 
             this.txtClassName.Location = new System.Drawing.Point(429, 92);
-            this.txtClassName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtClassName.Margin = new System.Windows.Forms.Padding(4);
             this.txtClassName.Name = "txtClassName";
             this.txtClassName.Size = new System.Drawing.Size(185, 25);
             this.txtClassName.TabIndex = 5;
@@ -377,7 +367,7 @@
             // txtnamespace
             // 
             this.txtnamespace.Location = new System.Drawing.Point(121, 92);
-            this.txtnamespace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtnamespace.Margin = new System.Windows.Forms.Padding(4);
             this.txtnamespace.Name = "txtnamespace";
             this.txtnamespace.Size = new System.Drawing.Size(191, 25);
             this.txtnamespace.TabIndex = 4;
@@ -397,7 +387,7 @@
             this.cbPrimarykey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrimarykey.FormattingEnabled = true;
             this.cbPrimarykey.Location = new System.Drawing.Point(121, 38);
-            this.cbPrimarykey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPrimarykey.Margin = new System.Windows.Forms.Padding(4);
             this.cbPrimarykey.Name = "cbPrimarykey";
             this.cbPrimarykey.Size = new System.Drawing.Size(191, 23);
             this.cbPrimarykey.TabIndex = 1;
@@ -407,7 +397,7 @@
             this.Btn_MakeModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_MakeModel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Btn_MakeModel.Location = new System.Drawing.Point(209, 608);
-            this.Btn_MakeModel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Btn_MakeModel.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_MakeModel.Name = "Btn_MakeModel";
             this.Btn_MakeModel.Size = new System.Drawing.Size(119, 29);
             this.Btn_MakeModel.TabIndex = 6;
@@ -423,7 +413,7 @@
             this.gridColumns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridColumns.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridColumns.Location = new System.Drawing.Point(4, 4);
-            this.gridColumns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridColumns.Margin = new System.Windows.Forms.Padding(4);
             this.gridColumns.Name = "gridColumns";
             this.gridColumns.RowTemplate.Height = 23;
             this.gridColumns.Size = new System.Drawing.Size(1151, 362);
@@ -444,6 +434,17 @@
             this.tabControl1.Size = new System.Drawing.Size(1167, 732);
             this.tabControl1.TabIndex = 0;
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(28, 608);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(201, 26);
+            this.button9.TabIndex = 16;
+            this.button9.Text = "生成ModelFactory(New)";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // ContentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -453,7 +454,7 @@
             this.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document;
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
             this.Name = "ContentForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -502,6 +503,6 @@
         private System.Windows.Forms.RichTextBox txtTemplate;
         private System.Windows.Forms.TabPage tp3;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button9;
     }
 }

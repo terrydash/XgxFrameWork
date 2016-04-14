@@ -164,6 +164,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="T4\MakeDBsession.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeDBsession.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4\EntityFactory.cs">
@@ -175,6 +180,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IEntityFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\MakeEntityFactoryMethods.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeEntityFactoryMethods.tt</DependentUpon>
     </Compile>
     <Compile Include="T4\MakeModel.cs">
       <AutoGen>True</AutoGen>
@@ -197,6 +207,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MakeT4EntityFactory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\MakeT4MainFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeT4MainFactory.tt</DependentUpon>
     </Compile>
     <Compile Include="T4\T4GeneratedVarDefine.cs" />
     <Compile Include="T4\IDal.cs">
@@ -316,6 +331,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="T4\MakeDBsession.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MakeDBsession.cs</LastGenOutput>
+      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
+    </Content>
     <Content Include="T4\EntityFactory.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EntityFactory.cs</LastGenOutput>
@@ -327,6 +347,10 @@
       <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;
 &lt;ArrayOfParameterStorage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Parameters>
       <CustomToolNamespace>Dos.T4</CustomToolNamespace>
+    </Content>
+    <Content Include="T4\MakeEntityFactoryMethods.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MakeEntityFactoryMethods.cs</LastGenOutput>
     </Content>
     <Content Include="T4\MakeModel.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -356,6 +380,12 @@
     <Content Include="T4\MakeT4EntityFactory.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MakeT4EntityFactory.cs</LastGenOutput>
+      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
+    </Content>
+    <Content Include="T4\MakeT4MainFactory.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MakeT4MainFactory.cs</LastGenOutput>
+      <CustomToolNamespace>Dos.T4</CustomToolNamespace>
     </Content>
     <Content Include="实体生成器更新日志.txt" />
   </ItemGroup>

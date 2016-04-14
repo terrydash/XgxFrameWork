@@ -12,6 +12,26 @@ using System.Xml;
 
 namespace Dos.T4
 {
+    /// <summary>
+    /// 针对数据库操作的类型
+    /// </summary>
+    public enum DataOperType
+    {
+        None = 0,
+        Select = 1, //查询
+        Insert = 2, //增加
+        Update = 3, //修改
+        Delete = 4 //删除
+    }
+    /// <summary>
+    /// 接口内的方法与与实际操作方法的对应类 便于根据接口里的方法名字生成对应操作
+    /// </summary>
+    public partial class Interface2MethodMap
+    {
+        public string InterfaceName { get; set; }//接口名
+        public string MethodName { get; set; }//生成的方法名
+        public DatabaseType DatabaseType {get;set; }
+    }
     #region 公用常量定义
     //用于定于常用的变量
     public partial class VarDefine
@@ -24,6 +44,8 @@ namespace Dos.T4
         public static  bool IsView { get; set; }
         public static bool IsSZMDX { get; set; }
         public static string DbType { get; set; }
+        public static string connString { get; set; }
+        public static string DataBaseType { get; set; }
 
     }
     #endregion

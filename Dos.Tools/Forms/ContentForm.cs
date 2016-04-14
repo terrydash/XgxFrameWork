@@ -79,7 +79,7 @@ namespace Hxj.Tools.EntityDesign
                 dbObject = new Dos.Tools.DbDAL.SQL2000.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.SqlServer9.ToString()))
-            {
+            {;
                 dbObject = new Dos.Tools.DbDAL.SQL2005.DbObject(ConnectionModel.ConnectionString);
             }
             else if (ConnectionModel.DbType.Equals(Dos.ORM.DatabaseType.MsAccess.ToString()))
@@ -168,9 +168,13 @@ namespace Hxj.Tools.EntityDesign
             if (cbPrimarykey.Items.Count > 0)
                 cbPrimarykey.SelectedIndex = 0;
         }
+
         private void VariableAssignment()
         {
-            if (!CheckContent()) { return; }
+            if (!CheckContent())
+            {
+                return;
+            }
             Utils.WriteNamespace(txtnamespace.Text);
 
             List<ColumnInfo> columns = Utils.GetColumnInfos(columnsdt);
@@ -183,7 +187,8 @@ namespace Hxj.Tools.EntityDesign
             VarDefine.IsSZMDX = cbToupperFrstword.Checked;
             VarDefine.Apppath = Application.StartupPath;
             VarDefine.DbType = ConnectionModel.DbType;
-            
+            VarDefine.connString = connectionModel.ConnectionString;
+            VarDefine.DataBaseType = connectionModel.Database;
         }
 
 
@@ -194,7 +199,6 @@ namespace Hxj.Tools.EntityDesign
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            
             VariableAssignment();
             fileName = txtClassName.Text;
             var mk = new MakeModel();
@@ -223,7 +227,6 @@ namespace Hxj.Tools.EntityDesign
                     sw.Close();
                 }
             }
-            
         }
 
         private void Btn_MakeDal_Click(object sender, EventArgs e)
@@ -237,7 +240,8 @@ namespace Hxj.Tools.EntityDesign
 
 
         }
-        private  bool CheckContent()
+
+        private bool CheckContent()
         {
             if (string.IsNullOrEmpty(txtnamespace.Text))
             {
@@ -266,21 +270,44 @@ namespace Hxj.Tools.EntityDesign
             Filtername = "CS 文件|*.cs";
             txtContent.Text = ie.TransformText();
             tabControl1.SelectedIndex = 1;
-            
-           
-
-
-
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
             VariableAssignment();
-            fileName = "T4EntityFactory";
+            fileName = "ModelFactory";
             Filtername = "TT 文件|*.tt";
-            MakeT4EntityFactory makeT4Entity = new MakeT4EntityFactory();
-            txtContent.Text = makeT4Entity.TransformText();
+            var makeT4Factory = new MakeT4MainFactory();
+            txtContent.Text = makeT4Factory.TransformText();
             tabControl1.SelectedIndex = 1;
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            VariableAssignment();
+            fileName = txtClassName.Text + "Factory";
+            Filtername = "CS 文件|*.cs";
+            var makeEntityFactoryMethods = new MakeEntityFactoryMethods();
+            txtContent.Text = makeEntityFactoryMethods.TransformText();
+            tabControl1.SelectedIndex = 1;
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            VariableAssignment();
+            fileName = "DBsession";
+            Filtername = "CS 文件|*.cs";
+            var makeDBsession = new MakeDBsession();
+            txtContent.Text = makeDBsession.TransformText();
+            tabControl1.SelectedIndex = 1;
+
         }
     }
 }

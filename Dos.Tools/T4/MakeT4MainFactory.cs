@@ -25,9 +25,9 @@ namespace Dos.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+    #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public partial class MakeT4EntityFactory : MakeT4EntityFactoryBase
+    public partial class MakeT4MainFactory : MakeT4MainFactoryBase
     {
 #line hidden
         /// <summary>
@@ -36,8 +36,8 @@ namespace Dos.T4
         public virtual string TransformText()
         {
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
- 
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
+
 #region 转换符号"<"和">" 用ASCII 代替
 var asciiCode= 60;
 System.Text.ASCIIEncoding asciiEncoding = new System.Text.ASCIIEncoding();
@@ -54,197 +54,197 @@ string right=asciiEncoding.GetString(byteArray);//>
             #line hidden
             this.Write("\n");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ template language=\"C#\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ assembly name=\"System.Core\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ assembly name=\"System.Data\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ assembly name=\"System.Collections\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ assembly name=\"$(ProjectDir)bin\\Debug\\Dos.Common.dll\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ assembly name=\"$(ProjectDir)bin\\Debug\\Dos.Orm.dll\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ assembly name=\"$(ProjectDir)bin\\Debug\\");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write(".dll\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ import namespace=\"System.Linq\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ import namespace=\"System.Text\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ import namespace=\"System.Collections.Generic\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ import namespace=\"System.Data\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ import namespace=\"Dos.ORM\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ import namespace=\"Dos.Common\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
             this.Write("#@ import namespace=\"");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write("\" #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
@@ -252,77 +252,35 @@ string right=asciiEncoding.GetString(byteArray);//>
             this.Write("\nusing System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System." +
                     "Text;\nusing ");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
             this.Write(";\nnamespace ");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.NameSpace));
             
             #line default
             #line hidden
-            this.Write("\n{\n\tpublic partial class ");
+            this.Write("\n{\n\tpublic partial class EntityFactory:IEntityFactory\n\t\t\n\t\t{\n");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write("Factory:I");
-            
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write("\n\t\t\n\t\t{\n");
-            
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
             #line hidden
-            this.Write("#= MakeInterfaceMenthods<I");
+            this.Write("#= MakeInterfaceMenthods<IEntityFactory>()#");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write(">()#");
-            
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(right));
-            
-            #line default
-            #line hidden
-            this.Write("\n");
-            
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(left));
-            
-            #line default
-            #line hidden
-            this.Write("#= MakeInterfaceMenthods<IDal<");
-            
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
-            
-            #line default
-            #line hidden
-            this.Write(">>()#");
-            
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
             #line hidden
             this.Write("\n\n\t\t}\n\n}\n");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(left));
             
             #line default
@@ -348,7 +306,7 @@ private string MakeInterfaceMenthods<T>()
                                     .Replace(typeof(int).Namespace + ""."", string.Empty)
                                     .Replace(typeof(");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
             
             #line default
@@ -385,7 +343,7 @@ private string MakeInterfaceMenthods<T>()
                                 .Replace(typeof(int).Namespace + ""."", string.Empty)
                                 .Replace(typeof(");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(VarDefine.ClassName));
             
             #line default
@@ -437,7 +395,7 @@ private string MakeInterfaceMenthods<T>()
 #endregion
 #");
             
-            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4EntityFactory.tt"
+            #line 1 "C:\Users\Administrator\Source\Repos\XgxFrameWork\Dos.Tools\T4\MakeT4MainFactory.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(right));
             
             #line default
@@ -453,7 +411,7 @@ private string MakeInterfaceMenthods<T>()
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
-    public class MakeT4EntityFactoryBase
+    public class MakeT4MainFactoryBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

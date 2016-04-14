@@ -1,0 +1,113 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #><#@ assembly name="System.Core" #><#@ assembly name="System.Data" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Common.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Orm.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Tools.Classes.dll" #><#@ import namespace="System.Linq" #><#@ import namespace="System.Text" #><#@ import namespace="System.Collections.Generic" #><#@ import namespace="System.Data" #><#@ import namespace="Dos.Tools.Common" #><#@ import namespace="Dos.Tools.Model" #><#@ import namespace="Dos.ORM" #><#@ import namespace="Dos.Common" #><#@ import namespace="Dos.T4" #><#@ import namespace="Dos.Tools.DbDAL" #><#@ import namespace="Dos.T4" #>
+//生成实体工厂的DAL的具体实现方法
+
+<#
+	var content=MakeInterfaceMenthods<IDal<Entity>>().Replace(typeof(Entity).Namespace.ToString()+".",string.Empty).Replace(typeof(IDal<>).Namespace+".",string.Empty).Replace("Entity",VarDefine.ClassName);
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using <#= VarDefine.NameSpace #>; 
+namespace <#= VarDefine.NameSpace #>
+{
+	public partial class <#= VarDefine.ClassName #>Factory:I<#= VarDefine.ClassName #>
+	{
+<#=  
+content
+#>			
+	
+	
+	}
+	
+
+}
+
+<#+
+ string MakeInterfaceMenthods<T>()
+        {
+            var type = typeof (T);
+            var gettype = type.GetMethods();
+
+            StringBuilder Methods = new StringBuilder();
+            string returnType = string.Empty;
+            string classType = string.Empty;
+            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder2 = new StringBuilder();
+
+            foreach (var VARIABLE in gettype)
+            {
+                returnType = VARIABLE.ReturnType.ToString()
+                    .Replace(typeof (List<>).Namespace + ".", string.Empty)
+                    .Replace(typeof (int).Namespace + ".", string.Empty)
+                    .Replace(typeof (T).Namespace + ".", string.Empty)
+                    .Replace("Boolean", "bool")
+                    .Replace("Int32", "int")
+                    .Replace("`1", string.Empty)
+                    .Replace("[", "<")
+                    .Replace("]", ">");
+
+
+                if (VARIABLE.IsPublic)
+                {
+                    classType = "public ";
+                }
+                if (VARIABLE.IsPrivate)
+                {
+                    classType = "private ";
+                }
+                if (VARIABLE.IsStatic)
+                {
+                    classType += " static";
+                }
+                var Parameters = VARIABLE.GetParameters();
+                foreach (var VARIABLEP in Parameters)
+                {
+                    stringBuilder.Append(",");
+                    stringBuilder.Append(
+                        VARIABLEP.ToString()
+                            .Replace(typeof (List<>).Namespace + ".", string.Empty)
+                            .Replace(typeof (int).Namespace + ".", string.Empty)
+                            .Replace(typeof (T).Namespace + ".", string.Empty)
+                            .Replace("Boolean", "bool")
+                            .Replace("Int32", "int")
+                            .Replace("`1", string.Empty)
+                            .Replace("[", "<")
+                            .Replace("]", ">"));
+                }
+                if (Parameters.Length > 0)
+                {
+                    stringBuilder.Remove(0, 1);
+                }
+                else
+                {
+                    stringBuilder.Clear();
+                }
+
+
+                stringBuilder2.Append("					")
+                    .Append(classType)
+                    .Append(returnType)
+                    .Append(" ")
+                    .Append(VARIABLE.Name)
+                    .Append("(")
+                    .Append(stringBuilder)
+                    .Append(")");
+                stringBuilder.Clear();
+                stringBuilder2.AppendLine();
+                stringBuilder2.AppendLine("					{");
+                stringBuilder2.AppendLine("					throw new NotImplementedException();");
+                stringBuilder2.AppendLine("					}");
+                Methods.Append(stringBuilder2);
+
+
+                stringBuilder2.Clear();
+            }
+
+
+            return Methods.ToString();
+        }
+
+     
+
+#>

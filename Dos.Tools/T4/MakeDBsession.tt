@@ -1,0 +1,36 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #><#@ assembly name="System.Core" #><#@ assembly name="System.Data" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Common.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Orm.dll" #><#@ assembly name="$(ProjectDir)bin\Debug\Dos.Tools.Classes.dll" #><#@ import namespace="System.Linq" #><#@ import namespace="System.Text" #><#@ import namespace="System.Collections.Generic" #><#@ import namespace="System.Data" #><#@ import namespace="Dos.Tools.Common" #><#@ import namespace="Dos.Tools.Model" #><#@ import namespace="Dos.ORM" #><#@ import namespace="Dos.Common" #><#@ import namespace="Dos.T4" #><#@ import namespace="Dos.Tools.DbDAL" #>
+using System;
+using System.Collections.Generic;
+using Dos.ORM;
+using System.Data.Common;
+<#
+		string databaseType= "Dos.ORM.DatabaseType.SqlServer9";
+		if (VarDefine.DbType.Equals(Dos.ORM.DatabaseType.SqlServer.ToString()))
+            {
+                databaseType="Dos.ORM.DatabaseType.SqlServer";
+            }           
+            else if (VarDefine.DbType.Equals(Dos.ORM.DatabaseType.MsAccess.ToString()))
+            {
+                 databaseType="Dos.ORM.DatabaseType.MsAccess";
+            }
+            else if (VarDefine.DbType.Equals(Dos.ORM.DatabaseType.Oracle.ToString()))
+            {
+                databaseType="Dos.ORM.DatabaseType.Oracle";
+            }
+            else if (VarDefine.DbType.Equals(Dos.ORM.DatabaseType.Sqlite3.ToString()))
+            {
+                 databaseType="Dos.ORM.DatabaseType.Sqlite3";
+            }
+            else if (VarDefine.DbType.Equals(Dos.ORM.DatabaseType.MySql.ToString()))
+            {
+                databaseType="Dos.ORM.DatabaseType.MySql";
+            }
+           
+#>
+namespace <#=  VarDefine.NameSpace #>
+{
+	public class  DBSession
+	{
+	public static DbSession Context = new DbSession(<#= databaseType #>, <#= VarDefine.connString #>);
+	}
+}
