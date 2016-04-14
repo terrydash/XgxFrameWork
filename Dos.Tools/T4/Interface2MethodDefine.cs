@@ -13,6 +13,10 @@ namespace Dos.T4
             {
                 var IName = "IDal";
                 _getIDalMethod.Add(new Interface2MethodMap {InterfaceName = IName,DataOperType = DataOperType.Select,MethodName = "GetEntityFromID" });
+                _getIDalMethod.Add(new Interface2MethodMap {InterfaceName = IName, DataOperType = DataOperType.Select, MethodName = "GetEntityListFromCuston" });
+                _getIDalMethod.Add(new Interface2MethodMap { InterfaceName = IName, DataOperType = DataOperType.Insert, MethodName = "InsertEntity" });
+                _getIDalMethod.Add(new Interface2MethodMap { InterfaceName = IName, DataOperType = DataOperType.Delete, MethodName = "DeleteEntity" });
+                _getIDalMethod.Add(new Interface2MethodMap { InterfaceName = IName, DataOperType = DataOperType.Update, MethodName = "UpdateEntity" });
                 return _getIDalMethod;
             }
         }
