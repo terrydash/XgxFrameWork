@@ -164,7 +164,6 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="T4\Interface2MethodDefine.cs" />
     <Compile Include="T4\MakeDBsession.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

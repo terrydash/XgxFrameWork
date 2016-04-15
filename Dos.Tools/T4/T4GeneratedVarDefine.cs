@@ -12,26 +12,6 @@ using System.Xml;
 
 namespace Dos.T4
 {
-    /// <summary>
-    /// 针对数据库操作的类型
-    /// </summary>
-    public enum DataOperType
-    {
-        None = 0,
-        Select = 1, //查询
-        Insert = 2, //增加
-        Update = 3, //修改
-        Delete = 4 //删除
-    }
-    /// <summary>
-    /// 接口内的方法与与实际操作方法的对应类 便于根据接口里的方法名字生成对应操作
-    /// </summary>
-    public  class Interface2MethodMap
-    {
-        public string InterfaceName { get; set; }//接口名
-        public string MethodName { get; set; }//生成的方法名
-        public DataOperType DataOperType { get;set; }//方法针对数据库是什么操作 用来与Dos.Orm接口对应
-    }
 
     #region 公用常量定义
     //用于定于常用的变量
@@ -50,8 +30,6 @@ namespace Dos.T4
 
     }
     #endregion
-
-
 
     #region  生成实体的模版MakeModel.tt的变量定义
     /// <summary>
@@ -171,7 +149,6 @@ namespace Dos.T4
         }
     }
     #endregion
-
 
    
 }
